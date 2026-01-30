@@ -117,7 +117,7 @@ function App() {
                 A hybrid designer that bridges marketing strategy with compelling digital design
               </h6>
               <button className={styles.scrollCircleButton} onClick={handleScrollToAbout} aria-label="Scroll to About section">
-                ⌄
+                ↓
               </button>
             </div>
           </div>

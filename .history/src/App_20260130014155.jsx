@@ -54,13 +54,6 @@ function StatNumber({ value, suffix = "" }) {
 }
 
 function App() {
-  const handleScrollToAbout = () => {
-    const el = document.getElementById("about");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <>
       <Navbar />
@@ -116,9 +109,6 @@ function App() {
               <h6 className={styles.landingSubtitle}>
                 A hybrid designer that bridges marketing strategy with compelling digital design
               </h6>
-              <button className={styles.scrollCircleButton} onClick={handleScrollToAbout} aria-label="Scroll to About section">
-                ⌄
-              </button>
             </div>
           </div>
         </section>

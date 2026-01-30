@@ -1,0 +1,114 @@
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 4rem 0;
+  padding-top: calc(80px + 4rem);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.shaderBackground {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 80px);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shaderBackground > * {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle {
+  margin-bottom: 2rem;
+  color: #FFFFFF;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.aboutText {
+  text-align: left;
+}
+
+.aboutText .sectionTitle {
+  margin-bottom: 1rem;
+}
+
+.aboutBody {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #FFFFFF;
+}
+
+.aboutImage {
+  width: 100%;
+  height: 280px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.placeholder {
+  padding: 2rem;
+  background-color: #000000;
+  border: 1px dashed #1652a8;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.placeholder p {
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.landingContent {
+  text-align: center;
+  width: 100%;
+}
+
+.landingTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.landingSubtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #FFFFFF;
+  margin: 0;
+  margin-top: 2rem;
+}
+
+.impactText {
+  font-family: 'Snell Roundhand', 'Snell Roundhand Bold', 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-weight: 900;
+  font-style: normal;
+  margin-left: 0.25em;
+}

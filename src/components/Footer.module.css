@@ -1,11 +1,60 @@
 .footer {
   background-color: #1652a8;
   padding: 2rem 0;
-  text-align: center;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .copyright {
   color: #FFFFFF;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  text-decoration: none;
+}
+
+.iconButton:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
