@@ -4,6 +4,10 @@ import Footer from "./components/Footer";
 import ShaderBackground from "./components/ShaderBackground";
 import ShinyText from "./components/ShinyText";
 import styles from "./App.module.css";
+import workUXUI01 from "./assets/Work_landingpage_UXUI01.png";
+import workUXUI02 from "./assets/Work_landingpage_UXUI02.png";
+import workDesign01 from "./assets/Work_landingpage_design01.png";
+import workDesign02 from "./assets/Work_landingpage_design02.png";
 
 function StatNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(value);
@@ -162,17 +166,76 @@ function App() {
         </section>
         <section id="work" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Work</h2>
-            <div className={styles.placeholder}>
-              <p>Work section placeholder</p>
+            <div className={styles.workHeader}>
+              <h2 className={styles.workTitle}>Selected Works</h2>
+              <p className={styles.workSubtitle}>
+                A curated collection of projects that balance aesthetic craft with strategic results.
+              </p>
+            </div>
+            <div className={styles.workRows}>
+              <div className={styles.workRow}>
+                <div className={styles.workText}>
+                  <h3 className={styles.workRowTitle}>UX / UI</h3>
+                  <p className={styles.workRowSubtitle}>
+                    Focusing on solving everyday challenges through user research and intuitive interface design.
+                  </p>
+                  <button className={styles.workLearnMoreBtn}>Learn more →</button>
+                </div>
+                <div className={styles.workImages}>
+                  <div className={styles.workImageContainer}>
+                    <img src={workUXUI01} alt="UX/UI Work 1" className={styles.workImage} />
+                    <div className={styles.workImageOverlay}>
+                      <p className={styles.workImageText}>A scheduling solution for parents in the skilled trades</p>
+                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                    </div>
+                  </div>
+                  <div className={styles.workImageContainer}>
+                    <img src={workUXUI02} alt="UX/UI Work 2" className={styles.workImage} />
+                    <div className={styles.workImageOverlay}>
+                      <p className={styles.workImageText}>A social app for music lovers</p>
+                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.workRow}>
+                <div className={styles.workText}>
+                  <h3 className={styles.workRowTitle}>Graphic Design</h3>
+                  <p className={styles.workRowSubtitle}>
+                    A blend of professional marketing assets and creative visual storytelling for diverse brands.
+                  </p>
+                  <button className={styles.workLearnMoreBtn}>Learn more →</button>
+                </div>
+                <div className={styles.workImages}>
+                  <div className={styles.workImageContainer}>
+                    <img src={workDesign01} alt="Graphic Design Work 1" className={styles.workImage} />
+                    <div className={styles.workImageOverlay}>
+                      <p className={styles.workImageText}>Cocktail packaging design</p>
+                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                    </div>
+                  </div>
+                  <div className={styles.workImageContainer}>
+                    <img src={workDesign02} alt="Graphic Design Work 2" className={styles.workImage} />
+                    <div className={styles.workImageOverlay}>
+                      <p className={styles.workImageText}>Social media campaign</p>
+                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         <section id="contact" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Contact</h2>
-            <div className={styles.placeholder}>
-              <p>Contact section placeholder</p>
+            <div className={styles.contactContent}>
+              <h2 className={styles.contactTitle}>HAVE AN IDEA?</h2>
+              <p className={styles.contactSubtitle}>
+                Let's bridge the gap between your business goals and user needs
+              </p>
+              <a href="mailto:bonniewan1998@gmail.com" className={styles.contactButton}>
+                Get in touch →
+              </a>
             </div>
           </div>
         </section>
