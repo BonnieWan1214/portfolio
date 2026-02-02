@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ShaderBackground from "./components/ShaderBackground";
@@ -179,7 +180,7 @@ function App() {
                   <p className={styles.workRowSubtitle}>
                     Focusing on solving everyday challenges through user research and intuitive interface design.
                   </p>
-                  <button className={styles.workLearnMoreBtn}>Learn more →</button>
+                  <button className={styles.workLearnMoreBtn}>View More Projects →</button>
                 </div>
                 <div className={styles.workImages}>
                   <div className={styles.workImageContainer}>
@@ -204,14 +205,14 @@ function App() {
                   <p className={styles.workRowSubtitle}>
                     A blend of professional marketing assets and creative visual storytelling for diverse brands.
                   </p>
-                  <button className={styles.workLearnMoreBtn}>Learn more →</button>
+                  <Link to="/work/cocktail-packaging" className={styles.workLearnMoreBtn}>View More Projects →</Link>
                 </div>
                 <div className={styles.workImages}>
                   <div className={styles.workImageContainer}>
                     <img src={workDesign01} alt="Graphic Design Work 1" className={styles.workImage} />
                     <div className={styles.workImageOverlay}>
                       <p className={styles.workImageText}>Cocktail packaging design</p>
-                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                      <Link to="/work/cocktail-packaging" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
                     </div>
                   </div>
                   <div className={styles.workImageContainer}>
