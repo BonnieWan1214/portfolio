@@ -219,7 +219,7 @@ function App() {
                     <img src={workDesign02} alt="Graphic Design Work 2" className={styles.workImage} />
                     <div className={styles.workImageOverlay}>
                       <p className={styles.workImageText}>Social media campaign</p>
-                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                      <Link to="/work/social-media-campaign" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
                     </div>
                   </div>
                 </div>
