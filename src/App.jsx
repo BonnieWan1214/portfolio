@@ -105,14 +105,19 @@ function App() {
                 A hybrid designer that bridges marketing strategy with compelling digital design
               </motion.p>
 
-              <div className={styles.landingImageStack}>
+              <motion.div
+                className={styles.landingImageStack}
+                initial={{ x: 0 }}
+                animate={{ x: 70 }}
+                transition={{ duration: 0.9, delay: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
                 <motion.div
                   className={styles.landingImg1}
                   initial={{ opacity: 0, y: 80, x: "-50%", rotate: 0 }}
                   animate={{
                     opacity: [0, 1, 1, 1],
                     y: [80, 0, 0, 0],
-                    x: ["-50%", "-50%", "-50%", "-168%"],
+                    x: ["-50%", "-50%", "-50%", "-200%"],
                     rotate: [0, 0, 0, -11],
                   }}
                   transition={{
@@ -123,6 +128,14 @@ function App() {
                   }}
                 >
                   <img src={landing1} alt="Work showcase 1" />
+                  <motion.div
+                    className={styles.hiThereTag}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 520, damping: 18, delay: 4.2 }}
+                  >
+                    Hi there
+                  </motion.div>
                 </motion.div>
                 <motion.div
                   className={styles.landingImg2}
@@ -131,6 +144,14 @@ function App() {
                   transition={{ duration: 0.75, delay: 2.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <img src={landing2} alt="Work showcase 2" />
+                  <motion.div
+                    className={styles.diveInTag}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 520, damping: 18, delay: 4.7 }}
+                  >
+                    Let’s dive in
+                  </motion.div>
                 </motion.div>
                 <motion.div
                   className={styles.landingImg3}
@@ -148,13 +169,13 @@ function App() {
                 >
                   <img src={landing4} alt="Work showcase 4" />
                 </motion.div>
-              </div>
+              </motion.div>
 
               <motion.div
                 className={styles.landingScrollWrap}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.55, delay: 4.05 }}
+                transition={{ duration: 0.55, delay: 5.25 }}
               >
                 <button className={styles.scrollCircleButton} onClick={handleScrollToAbout} aria-label="Scroll to About section">
                   ⌄
