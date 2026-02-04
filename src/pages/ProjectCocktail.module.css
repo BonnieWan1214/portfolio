@@ -2,21 +2,21 @@
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 52px;
   background: #121212;
 }
 
 .layout {
   display: flex;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 52px);
 }
 
 .sidebar {
   position: fixed;
   left: 0;
-  top: 80px;
+  top: 52px;
   width: 20%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 52px);
   display: flex;
   align-items: center;
   justify-content: center;

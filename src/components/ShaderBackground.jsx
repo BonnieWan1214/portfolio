@@ -39,8 +39,8 @@ function ShaderBackground() {
         cDistance={2.8}
         cPolarAngle={80}
         cameraZoom={9.1}
-        color1="#485e80"
-        color2="#8fa2c0"
+        color1="#5c6e85"
+        color2="#a8b6cc"
         color3="#212121"
         destination="onCanvas"
         embedMode="off"

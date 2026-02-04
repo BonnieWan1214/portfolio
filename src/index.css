@@ -55,3 +55,10 @@ p {
   font-size: 1rem;
   line-height: 1.6;
 }
+
+/* About 標題「I'm Bonnie」強制變大變粗，不被全域 h2 覆蓋 */
+#about h2 {
+  font-size: 3.25rem !important;
+  font-weight: 900 !important;
+}
+

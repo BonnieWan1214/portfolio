@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ShaderBackground from "./components/ShaderBackground";
@@ -64,8 +64,24 @@ function StatNumber({ value, suffix = "" }) {
 }
 
 function App() {
+  const aboutImageRef = useRef(null);
+  const aboutInView = useInView(aboutImageRef, { once: true, amount: 0.4 });
+  const [showAboutScrollBtn, setShowAboutScrollBtn] = useState(false);
+  useEffect(() => {
+    if (!aboutInView) return;
+    const t = setTimeout(() => setShowAboutScrollBtn(true), 1200);
+    return () => clearTimeout(t);
+  }, [aboutInView]);
+
   const handleScrollToAbout = () => {
     const el = document.getElementById("about");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScrollToWork = () => {
+    const el = document.getElementById("work");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -189,11 +205,9 @@ function App() {
           <div className={styles.container}>
             <div className={styles.aboutContent}>
               <div className={styles.aboutText}>
-                <h2 className={styles.sectionTitle}>About Me</h2>
+                <h2 className={styles.aboutMainTitle} style={{ fontSize: '3.25rem', fontWeight: 900 }}>I'm Bonnie</h2>
                 <p className={styles.aboutBody}>
-                  Hi there, I’m Bonnie. With 5+ years in digital design and B2B marketing, I specialize in the
-                  intersection of user intent and business growth. I don’t just design for aesthetics, I design for
-                  impact.
+                  With over five years of experience in digital design and B2B marketing across multiple industries, I focus on how design supports both user needs and business goals—creating impact beyond aesthetics.
                 </p>
                 <div className={styles.aboutStats}>
                   <div className={styles.statItem}>
@@ -215,11 +229,11 @@ function App() {
                     <div className={styles.statLabel}>Industries Explored</div>
                   </div>
                 </div>
-                <button className={styles.aboutCtaButton}>
+                <button type="button" className={styles.aboutCtaButton}>
                   SEE MY JOURNEY→
                 </button>
               </div>
-              <div className={styles.aboutImage}>
+              <div className={styles.aboutImage} ref={aboutImageRef}>
                 <div className={styles.aboutImageFrame}>
                   <div className={styles.aboutImageGlow}></div>
                   <img
@@ -275,6 +289,16 @@ function App() {
                 </motion.div>
               </div>
             </div>
+            <motion.div
+              className={styles.aboutScrollWrap}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: showAboutScrollBtn ? 1 : 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <button className={styles.scrollCircleButton} onClick={handleScrollToWork} aria-label="Scroll to Work section">
+                ⌄
+              </button>
+            </motion.div>
           </div>
         </section>
         <section id="work" className={styles.section}>

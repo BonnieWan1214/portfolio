@@ -6,7 +6,7 @@
 .section {
   min-height: 100vh;
   padding: 4rem 0;
-  padding-top: calc(80px + 4rem);
+  padding-top: calc(52px + 4rem);
   display: flex;
   align-items: center;
   position: relative;
@@ -16,12 +16,42 @@
   background: #121212;
 }
 
+#about.section {
+  background: #121212;
+  min-height: auto;
+  padding: 3rem 0 1.5rem 0;
+  padding-top: calc(52px + 3rem);
+}
+
+#work.section {
+  padding-top: calc(52px + 2rem);
+}
+
+#about .aboutMainTitle {
+  font-size: 3.25rem !important;
+  font-weight: 900 !important;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+#about .aboutBody {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+#about .statLabel {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#about .aboutStats {
+  justify-content: flex-start;
+}
+
 .shaderBackground {
   position: absolute;
-  top: -80px;
+  top: -52px;
   left: 0;
   width: 100%;
-  height: calc(100% + 80px);
+  height: calc(100% + 52px);
   z-index: 0;
   overflow: hidden;
   background: #121212;
@@ -57,7 +87,8 @@
   text-align: left;
 }
 
-.aboutText .sectionTitle {
+.aboutText .sectionTitle,
+.aboutText .aboutMainTitle {
   margin-bottom: 1rem;
 }
 
@@ -76,18 +107,21 @@
 .statItem {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .statNumber {
   font-size: 3rem;
   font-weight: 900;
   color: #6c9de5;
+  text-align: center;
 }
 
 .statLabel {
   font-size: 1rem;
   color: #FFFFFF;
+  text-align: center;
 }
 
 .aboutCtaButton {
@@ -136,7 +170,7 @@
 .aboutImage {
   position: relative;
   width: 100%;
-  max-width: 340px;
+  max-width: 420px;
   aspect-ratio: 4 / 3;
   margin-left: 1rem;
 }
@@ -145,7 +179,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 24px;
+  border-radius: 12px;
   overflow: hidden;
   background: radial-gradient(circle at 30% 0%, rgba(108, 157, 229, 0.5), transparent 65%),
     rgba(255, 255, 255, 0.04);
@@ -158,7 +192,7 @@
 .aboutImageGlow {
   position: absolute;
   inset: 12px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid rgba(108, 157, 229, 0.4);
   box-shadow:
     0 0 24px rgba(108, 157, 229, 0.4),
@@ -172,8 +206,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 55%;
-  border-radius: 24px;
+  object-position: center 75%;
+  border-radius: 12px;
 }
 
 .aboutTag {
@@ -200,6 +234,8 @@
   top: -10px;
   left: -4px;
   transform: rotate(10deg);
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
 }
 
 .aboutTagTopRight {
@@ -224,6 +260,8 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%) rotate(4deg);
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
 }
 
 .placeholder {
@@ -342,6 +380,11 @@
     0 6px 20px rgba(0, 0, 0, 0.15),
     8px 8px 28px rgba(0, 0, 0, 0.18);
   object-fit: cover;
+  transition: transform 0.28s ease;
+}
+
+.landingImageStack > div:hover img {
+  transform: translateY(-6px);
 }
 
 /* 1 最上層，4 在 1 下，3 在 4 下，2 最底層 */
@@ -367,6 +410,13 @@
 
 .landingScrollWrap {
   margin-top: 1.25rem;
+}
+
+.aboutScrollWrap {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .scrollCircleButton {
