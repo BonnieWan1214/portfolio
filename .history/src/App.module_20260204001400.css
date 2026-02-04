@@ -82,7 +82,7 @@
 .statNumber {
   font-size: 3rem;
   font-weight: 900;
-  color: #6c9de5;
+  color: #1652a8;
 }
 
 .statLabel {
@@ -144,7 +144,7 @@
 .placeholder {
   padding: 2rem;
   background-color: var(--background);
-  border: 1px dashed #6c9de5;
+  border: 1px dashed #1652a8;
   text-align: center;
   color: #FFFFFF;
 }
