@@ -13,6 +13,7 @@ import landing1 from "./assets/Landing page_1.png";
 import landing2 from "./assets/Landing page_2.png";
 import landing3 from "./assets/Landing page_3.png";
 import landing4 from "./assets/Landing page_4.png";
+import bonniePhoto from "./assets/Picture_Bonnie.png";
 
 function StatNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(value);
@@ -218,7 +219,61 @@ function App() {
                   SEE MY JOURNEY→
                 </button>
               </div>
-              <div className={styles.aboutImage}></div>
+              <div className={styles.aboutImage}>
+                <div className={styles.aboutImageFrame}>
+                  <div className={styles.aboutImageGlow}></div>
+                  <img
+                    src={bonniePhoto}
+                    alt="Portrait of Bonnie Wan"
+                    className={styles.aboutImagePhoto}
+                  />
+                </div>
+                <motion.div
+                  className={`${styles.aboutTag} ${styles.aboutTagTopLeft}`}
+                  initial={{ opacity: 0, scale: 0.7, y: -8, rotate: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 10 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.1 }}
+                >
+                  TPE / YVR
+                </motion.div>
+                <motion.div
+                  className={`${styles.aboutTag} ${styles.aboutTagTopRight}`}
+                  initial={{ opacity: 0, scale: 0.7, y: -8 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.22 }}
+                >
+                  UI / UX Designer
+                </motion.div>
+                <motion.div
+                  className={`${styles.aboutTag} ${styles.aboutTagBottomLeft}`}
+                  initial={{ opacity: 0, scale: 0.7, y: 8, rotate: -15 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: -15 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.34 }}
+                >
+                  Product Designer
+                </motion.div>
+                <motion.div
+                  className={`${styles.aboutTag} ${styles.aboutTagBottomRight}`}
+                  initial={{ opacity: 0, scale: 0.7, y: 8, rotate: -5 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: -5 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.46 }}
+                >
+                  Outdoor Enthusiast
+                </motion.div>
+                <motion.div
+                  className={`${styles.aboutTag} ${styles.aboutTagCenter}`}
+                  initial={{ opacity: 0, scale: 0.7, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.6 }}
+                >
+                  ENFJ
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
