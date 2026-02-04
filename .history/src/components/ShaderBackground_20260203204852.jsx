@@ -26,7 +26,7 @@ function DisableWheelZoom() {
 function ShaderBackground() {
   return (
     <ShaderGradientCanvas
-      style={{ position: "absolute", inset: 0, background: "#121212" }}
+      style={{ position: "absolute", inset: 0 }}
       pixelDensity={1.3}
       fov={45}
     >

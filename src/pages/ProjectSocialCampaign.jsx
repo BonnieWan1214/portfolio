@@ -117,7 +117,7 @@ function ProjectSocialCampaign() {
                 </h2>
                 <p className={styles.overviewBody}>
                   The creative approach combines real photography with bold, comic-inspired illustrations to maintain
-                  a balance between authenticity and playfulness. Utilizing Busch Beer’s signature blue tones and icy
+                  a balance between authenticity and playfulness. Utilizing Busch Beer's signature blue tones and icy
                   visual elements, the graphics were designed to be high-impact yet easy to digest. This consistent
                   system highlights the brand's refreshing character while ensuring a cool, crisp aesthetic across all
                   social touchpoints.
@@ -180,4 +180,3 @@ function ProjectSocialCampaign() {
 }
 
 export default ProjectSocialCampaign;
-

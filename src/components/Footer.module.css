@@ -1,8 +1,6 @@
 .footer {
   background-color: #1652a8;
   padding: 2rem 0;
-  position: relative;
-  z-index: 10;
 }
 
 .footerContent {

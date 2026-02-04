@@ -26,9 +26,9 @@ function DisableWheelZoom() {
 function ShaderBackground() {
   return (
     <ShaderGradientCanvas
-      style={{ position: "absolute", inset: 0, background: "#121212" }}
-      pixelDensity={1.3}
-      fov={45}
+      style={{ position: "absolute", inset: 0 }}
+      pixelDensity={1}
+      fov={50}
     >
       <DisableWheelZoom />
       <ShaderGradient
@@ -36,24 +36,24 @@ function ShaderBackground() {
         axesHelper="off"
         bgColor1="#000000"
         bgColor2="#000000"
-        brightness={0.8}
+        brightness={1}
         cAzimuthAngle={180}
-        cDistance={2.8}
+        cDistance={2.3}
         cPolarAngle={80}
         cameraZoom={9.1}
-        color1="#155183"
-        color2="#4589c0"
+        color1="#1d5e80"
+        color2="#007d9c"
         color3="#212121"
         destination="onCanvas"
         embedMode="off"
-        envPreset="dawn"
+        envPreset="city"
         format="gif"
-        fov={45}
+        fov={50}
         frameRate={10}
         gizmoHelper="hide"
         grain="on"
         lightType="3d"
-        pixelDensity={1.3}
+        pixelDensity={1}
         positionX={0}
         positionY={0}
         positionZ={0}
@@ -65,13 +65,13 @@ function ShaderBackground() {
         rotationY={0}
         rotationZ={-60}
         shader="defaults"
-        type="sphere"
-        uAmplitude={1.3}
-        uDensity={1.3}
+        type="waterPlane"
+        uAmplitude={0}
+        uDensity={1.5}
         uFrequency={0}
-        uSpeed={0.1}
+        uSpeed={0.4}
         uStrength={1.5}
-        uTime={8}
+        uTime={0}
         wireframe={false}
       />
     </ShaderGradientCanvas>

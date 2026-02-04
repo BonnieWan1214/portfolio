@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ShaderBackground from "./components/ShaderBackground";
-import ShinyText from "./components/ShinyText";
 import styles from "./App.module.css";
 import workUXUI01 from "./assets/Work_landingpage_UXUI01.png";
 import workUXUI02 from "./assets/Work_landingpage_UXUI02.png";
 import workDesign01 from "./assets/Work_landingpage_design01.png";
 import workDesign02 from "./assets/Work_landingpage_design02.png";
+import landing1 from "./assets/Landing page_1.png";
+import landing2 from "./assets/Landing page_2.png";
+import landing3 from "./assets/Landing page_3.png";
+import landing4 from "./assets/Landing page_4.png";
 
 function StatNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(value);
@@ -76,54 +80,86 @@ function App() {
           </div>
           <div className={styles.container}>
             <div className={styles.landingContent}>
-              <h1 className={styles.landingTitle}>
-                <ShinyText
-                  text="Designed for Resonance"
-                  speed={1.5}
-                  delay={0.3}
-                  color="#b5b5b5"
-                  shineColor="#ffffff"
-                  spread={85}
-                  direction="left"
-                  yoyo
-                  pauseOnHover={false}
-                  disabled={false}
-                />
-              </h1>
-              <h1 className={styles.landingTitle}>
-                <ShinyText
-                  text="Built for "
-                  speed={1.5}
-                  delay={0.3}
-                  color="#b5b5b5"
-                  shineColor="#ffffff"
-                  spread={85}
-                  direction="left"
-                  yoyo
-                  pauseOnHover={false}
-                  disabled={false}
-                />
-                <span className={styles.impactText}>
-                  <ShinyText
-                    text="Impact"
-                    speed={1.5}
-                    delay={0.3}
-                    color="#b5b5b5"
-                    shineColor="#ffffff"
-                    spread={85}
-                    direction="left"
-                    yoyo
-                    pauseOnHover={false}
-                    disabled={false}
-                  />
-                </span>
-              </h1>
-              <h6 className={styles.landingSubtitle}>
+              <motion.h1
+                className={styles.landingTitle}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.25, delay: 1.2 }}
+              >
+                Designed for Resonance
+              </motion.h1>
+              <motion.h1
+                className={styles.landingTitle}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.25, delay: 1.35 }}
+              >
+                Built for Impact
+              </motion.h1>
+              <motion.p
+                className={styles.landingSubtitle}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.1, delay: 1.5 }}
+              >
                 A hybrid designer that bridges marketing strategy with compelling digital design
-              </h6>
-              <button className={styles.scrollCircleButton} onClick={handleScrollToAbout} aria-label="Scroll to About section">
-                ⌄
-              </button>
+              </motion.p>
+
+              <div className={styles.landingImageStack}>
+                <motion.div
+                  className={styles.landingImg1}
+                  initial={{ opacity: 0, y: 80, x: "-50%", rotate: 0 }}
+                  animate={{
+                    opacity: [0, 1, 1, 1],
+                    y: [80, 0, 0, 0],
+                    x: ["-50%", "-50%", "-50%", "-168%"],
+                    rotate: [0, 0, 0, -11],
+                  }}
+                  transition={{
+                    duration: 2.75,
+                    delay: 1.4,
+                    times: [0, 0.22, 0.5, 1],
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                >
+                  <img src={landing1} alt="Work showcase 1" />
+                </motion.div>
+                <motion.div
+                  className={styles.landingImg2}
+                  initial={{ opacity: 0, x: "-50%", rotate: 0 }}
+                  animate={{ opacity: 1, x: "24%", rotate: 11 }}
+                  transition={{ duration: 0.75, delay: 2.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img src={landing2} alt="Work showcase 2" />
+                </motion.div>
+                <motion.div
+                  className={styles.landingImg3}
+                  initial={{ opacity: 0, x: "-50%", rotate: 0 }}
+                  animate={{ opacity: 1, x: "-50%", rotate: 2 }}
+                  transition={{ duration: 0.75, delay: 2.82, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img src={landing3} alt="Work showcase 3" />
+                </motion.div>
+                <motion.div
+                  className={styles.landingImg4}
+                  initial={{ opacity: 0, x: "-50%", rotate: 0 }}
+                  animate={{ opacity: 1, x: "-124%", rotate: -6 }}
+                  transition={{ duration: 0.75, delay: 3.04, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img src={landing4} alt="Work showcase 4" />
+                </motion.div>
+              </div>
+
+              <motion.div
+                className={styles.landingScrollWrap}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.55, delay: 4.05 }}
+              >
+                <button className={styles.scrollCircleButton} onClick={handleScrollToAbout} aria-label="Scroll to About section">
+                  ⌄
+                </button>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -180,7 +216,7 @@ function App() {
                   <p className={styles.workRowSubtitle}>
                     Focusing on solving everyday challenges through user research and intuitive interface design.
                   </p>
-                  <button className={styles.workLearnMoreBtn}>View More Projects →</button>
+                  <button className={styles.workLearnMoreBtn}>Learn more →</button>
                 </div>
                 <div className={styles.workImages}>
                   <div className={styles.workImageContainer}>
@@ -205,7 +241,7 @@ function App() {
                   <p className={styles.workRowSubtitle}>
                     A blend of professional marketing assets and creative visual storytelling for diverse brands.
                   </p>
-                  <Link to="/work/cocktail-packaging" className={styles.workLearnMoreBtn}>View More Projects →</Link>
+                  <Link to="/work/cocktail-packaging" className={styles.workLearnMoreBtn}>Learn more →</Link>
                 </div>
                 <div className={styles.workImages}>
                   <div className={styles.workImageContainer}>
