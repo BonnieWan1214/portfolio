@@ -199,6 +199,312 @@
   margin-top: 3rem;
 }
 
+/* Transition block: from research to solution */
+.sectionTransition {
+  margin-top: 3rem;
+  padding: 3.5rem 2rem;
+  text-align: center;
+}
+
+.sectionTransitionSmall {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.5rem 0;
+}
+
+.sectionTransitionLarge {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.sectionTransitionArrow {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 3.25rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1;
+  pointer-events: none;
+  -webkit-text-stroke: 0.5px currentColor;
+  animation: sectionArrowBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes sectionArrowBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(16px); opacity: 1; }
+}
+
+/* 06 User Flow */
+.flowSection {
+  margin-top: 3rem;
+}
+
+.flowSection .overviewHeading {
+  margin-bottom: 1.5rem;
+}
+
+.flowImageWrap {
+  max-width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.flowImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 07 Design System */
+.designSection {
+  margin-top: 3rem;
+}
+
+.designSection .overviewHeading {
+  margin-bottom: 1.5rem;
+}
+
+.designBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.designBtn {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.designBtn:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Shimmer on hover */
+.designBtnShine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.2) 55%,
+    transparent 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: none;
+}
+
+.designBtn:hover .designBtnShine {
+  animation: designBtnShine 0.7s ease forwards;
+}
+
+@keyframes designBtnShine {
+  to {
+    left: 100%;
+  }
+}
+
+/* Selected / clicked state */
+.designBtnActive {
+  border-color: #6c9de5;
+  background: rgba(108, 157, 229, 0.2);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(108, 157, 229, 0.4);
+}
+
+.designBtnActive:hover {
+  border-color: #6c9de5;
+  background: rgba(108, 157, 229, 0.28);
+}
+
+.designPanel {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.designPanelImageWrap {
+  width: 100%;
+  max-width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.designPanelImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.designPanelDesc {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 100%;
+}
+
+.designPanelDesc strong {
+  font-weight: 900;
+  color: #6c9de5;
+}
+
+/* 08 Design Evolution */
+.evolutionSection {
+  margin-top: 3rem;
+}
+
+/* Typography & Color panel */
+.typographyPanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  align-items: stretch;
+}
+
+.typographyColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.typographyFontGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.typographyFontName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.typographyWeights {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.typographyColors {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: center;
+  min-width: 0;
+}
+
+.colorCircleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.colorCircle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.colorCircleMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.colorCircleLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.colorCircleCode {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: monospace;
+}
+
+.typographyAa {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.typographyBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.typographyLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.typographySample {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .typographyPanel {
+    grid-template-columns: 1fr;
+  }
+  .typographyColors {
+    justify-content: flex-start;
+  }
+}
+
 /* Problem Statement — text + stat viz (no image) */
 
 .problemSection .overviewBody {

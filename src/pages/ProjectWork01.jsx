@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./ProjectWork01.module.css";
 import userPersonaImage from "../assets/Work01_Userpersona.png";
+import userFlowImage from "../assets/Work01_user-flow.svg";
+import logoDesignSvg from "../assets/Work01_logodesign.svg";
+import componentsSvg from "../assets/Work01_components.svg";
+import heroImg from "../assets/Work01_hero img.jpg";
 
 function ProjectWork01() {
   const navigate = useNavigate();
+  const [designTab, setDesignTab] = useState("typography");
 
   return (
     <>
@@ -18,6 +24,7 @@ function ProjectWork01() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>Role</span>
                   <span className={styles.metaValue}>UI / UX Designer</span>
+                  <span className={styles.metaValue}>Logo Desiner</span>
                   <span className={styles.metaValue}>Frontend Developer</span>
                 </div>
                 <div className={styles.metaItem}>
@@ -43,8 +50,7 @@ function ProjectWork01() {
               Tandem | A scheduling solution for parents in the skilled trades
             </h1>
             <div className={styles.imageWrapper}>
-              {/* Replace with your hero image when ready */}
-              <div className={styles.placeholderImage}>Hero image</div>
+              <img src={heroImg} alt="Tandem app hero" className={styles.projectImage} />
             </div>
             <div className={styles.overviewSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>01</span> Project Overview</h2>
@@ -219,6 +225,131 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                 </div>
               </div>
+            </div>
+            <div className={styles.sectionTransition}>
+              <p className={styles.sectionTransitionSmall}>From understanding to designing</p>
+              <h2 className={styles.sectionTransitionLarge}>The solution takes shape</h2>
+              <span className={styles.sectionTransitionArrow} aria-hidden>⌄</span>
+            </div>
+            <div className={styles.flowSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>06</span> User Flow</h2>
+              <div className={styles.flowImageWrap}>
+                <img src={userFlowImage} alt="User flow" className={styles.flowImage} />
+              </div>
+            </div>
+            <div className={styles.designSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>07</span> Design System</h2>
+              <div className={styles.designBtns}>
+                <button
+                  type="button"
+                  className={`${styles.designBtn} ${designTab === "typography" ? styles.designBtnActive : ""}`}
+                  onClick={() => setDesignTab("typography")}
+                >
+                  <span className={styles.designBtnShine} aria-hidden />
+                  Typography & Color
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.designBtn} ${designTab === "logo" ? styles.designBtnActive : ""}`}
+                  onClick={() => setDesignTab("logo")}
+                >
+                  <span className={styles.designBtnShine} aria-hidden />
+                  Logo
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.designBtn} ${designTab === "components" ? styles.designBtnActive : ""}`}
+                  onClick={() => setDesignTab("components")}
+                >
+                  <span className={styles.designBtnShine} aria-hidden />
+                  Components
+                </button>
+              </div>
+              {designTab === "typography" && (
+                <div className={styles.typographyPanel}>
+                  <div className={styles.typographyColumn}>
+                    <div className={styles.typographyFontGroup}>
+                      <p className={styles.typographyFontName} style={{ fontFamily: "Alan Sans, sans-serif" }}>Alan Sans</p>
+                      <p className={styles.typographyWeights}>Regular / Medium / Bold</p>
+                    </div>
+                    <p className={styles.typographyAa} style={{ fontFamily: "Alan Sans, sans-serif" }}>Aa</p>
+                    <div className={styles.typographyBlock}>
+                      <span className={styles.typographyLabel}>Heading</span>
+                      <p className={styles.typographySample} style={{ fontFamily: "Alan Sans, sans-serif" }}>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />1234567890</p>
+                    </div>
+                    <div className={styles.typographyBlock}>
+                      <span className={styles.typographyLabel}>Text</span>
+                      <p className={styles.typographySample} style={{ fontFamily: "Alan Sans, sans-serif" }}>abcdefghijklmnopqrstuvwxyz<br />1234567890</p>
+                    </div>
+                  </div>
+                  <div className={styles.typographyColumn}>
+                    <div className={styles.typographyFontGroup}>
+                      <p className={styles.typographyFontName} style={{ fontFamily: "Alan Sans, sans-serif" }}>Omnes</p>
+                      <p className={styles.typographyWeights}>Regular / Medium / Bold</p>
+                    </div>
+                    <p className={styles.typographyAa} style={{ fontFamily: "Omnes, sans-serif" }}>Aa</p>
+                    <div className={styles.typographyBlock}>
+                      <span className={styles.typographyLabel}>Heading</span>
+                      <p className={styles.typographySample} style={{ fontFamily: "Omnes, sans-serif" }}>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />1234567890</p>
+                    </div>
+                    <div className={styles.typographyBlock}>
+                      <span className={styles.typographyLabel}>Text</span>
+                      <p className={styles.typographySample} style={{ fontFamily: "Omnes, sans-serif" }}>abcdefghijklmnopqrstuvwxyz<br />1234567890</p>
+                    </div>
+                  </div>
+                  <div className={styles.typographyColors}>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#3373CC" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Primary</span>
+                        <span className={styles.colorCircleCode}>RGB (51,115,204) #3373CC</span>
+                      </div>
+                    </div>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#92F189" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Secondary</span>
+                        <span className={styles.colorCircleCode}>RGB (146,241,137) #92F189</span>
+                      </div>
+                    </div>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#68D5FF" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Analogous</span>
+                        <span className={styles.colorCircleCode}>RGB (104,213,255) #68D5FF</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {designTab === "typography" && (
+                <p className={styles.designPanelDesc}>
+                  We chose Alan Sans and Omnes for their clean, rounded forms that feel both <strong>professional</strong> and <strong>approachable</strong>, ensuring clarity and warmth throughout the interface.
+                  Blue conveys <strong>trust</strong> and <strong>security</strong> in childcare decisions, while green represents <strong>work</strong> and <strong>growth</strong>. Together, the colors create a balanced visual language that reflects <strong>stability</strong> and <strong>support</strong> in managing both career and family life.
+                </p>
+              )}
+              {designTab === "logo" && (
+                <>
+                  <div className={styles.designPanel}>
+                    <div className={styles.designPanelImageWrap}>
+                      <img src={logoDesignSvg} alt="Logo design" className={styles.designPanelImage} />
+                    </div>
+                  </div>
+                  <p className={styles.designPanelDesc}>
+                    The logo merges a hammer with the letter "T" from Tandem, symbolizing craftsmanship and resilience while strengthening brand recognition. The handle is formed by two interwoven color blocks, representing career and childcare, strength and support, <strong>reflecting the idea that no parent has to carry both roles alone.</strong>
+                  </p>
+                </>
+              )}
+              {designTab === "components" && (
+                <div className={styles.designPanel}>
+                  <div className={styles.designPanelImageWrap}>
+                    <img src={componentsSvg} alt="Components" className={styles.designPanelImage} />
+                  </div>
+                </div>
+              )}
+            <div className={styles.evolutionSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>08</span> Design Evolution</h2>
+            </div>
             </div>
           </div>
         </div>
