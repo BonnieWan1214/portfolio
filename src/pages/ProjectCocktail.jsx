@@ -49,7 +49,7 @@ function ProjectCocktail() {
               />
             </div>
             <div className={styles.overviewSection}>
-              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>01</span> / Project Overview</h2>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>01</span> Project Overview</h2>
               <p className={styles.overviewBody}>
                 Meowtini is a series of sparkling cocktails, each flavor embodying a unique form of luck, personified by the brand's "Maneki-neko" (Lucky Cat) mascot. By reimagining this traditional symbol through a modern pop-art lens, the project aims to establish a high-impact visual identity that commands attention on crowded retail shelves.
               </p>
@@ -59,14 +59,14 @@ function ProjectCocktail() {
                 <img src={workImage2} alt="Meowtini design strategy" className={styles.projectImage} />
               </div>
               <div className={styles.sectionRowText}>
-                <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>02</span> / Design Strategy</h2>
+                <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>02</span> Design Strategy</h2>
                 <p className={styles.overviewBody}>
                   The design integrates pop art, utilizing bold black lines and halftone textures, with high-saturation spot colors on a clean white background to highlight the theme of each drink. This systematic approach maintains brand consistency while giving the Apple, Lemon, and Strawberry flavors distinct vitality and personality.
                 </p>
               </div>
             </div>
             <div className={styles.collectionSection}>
-              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>03</span> / The Collection</h2>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>03</span> The Collection</h2>
               <div className={styles.collectionGrid}>
                 <div className={styles.collectionCard}>
                   <div className={styles.collectionCardImage}>

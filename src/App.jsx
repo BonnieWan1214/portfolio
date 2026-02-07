@@ -16,8 +16,8 @@ import landing4 from "./assets/Landing page_4.png";
 import bonniePhoto from "./assets/Picture_Bonnie.png";
 
 function StatNumber({ value, suffix = "" }) {
-  const [display, setDisplay] = useState(value);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [display, setDisplay] = useState(0);
+  const hasAnimatedRef = useRef(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -27,9 +27,9 @@ function StatNumber({ value, suffix = "" }) {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const duration = 3000;
+        if (entry.isIntersecting && !hasAnimatedRef.current) {
+          hasAnimatedRef.current = true;
+          const duration = 2000;
           const start = performance.now();
 
           const animate = (now) => {
@@ -44,7 +44,7 @@ function StatNumber({ value, suffix = "" }) {
           frame = requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.2 }
     );
 
     observer.observe(ref.current);
@@ -53,7 +53,7 @@ function StatNumber({ value, suffix = "" }) {
       observer.disconnect();
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [value, hasAnimated]);
+  }, [value]);
 
   return (
     <span ref={ref}>
@@ -316,21 +316,21 @@ function App() {
                   <p className={styles.workRowSubtitle}>
                     Focusing on solving everyday challenges through user research and intuitive interface design.
                   </p>
-                  <button className={styles.workLearnMoreBtn}>Learn more →</button>
+                  <Link to="/work/ux-ui" className={styles.workLearnMoreBtn}>Learn more →</Link>
                 </div>
                 <div className={styles.workImages}>
                   <div className={styles.workImageContainer}>
                     <img src={workUXUI01} alt="UX/UI Work 1" className={styles.workImage} />
                     <div className={styles.workImageOverlay}>
                       <p className={styles.workImageText}>A scheduling solution for parents in the skilled trades</p>
-                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                      <Link to="/work/ux-ui" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
                     </div>
                   </div>
                   <div className={styles.workImageContainer}>
                     <img src={workUXUI02} alt="UX/UI Work 2" className={styles.workImage} />
                     <div className={styles.workImageOverlay}>
                       <p className={styles.workImageText}>A social app for music lovers</p>
-                      <button className={styles.workImageLearnMoreBtn}>Learn more →</button>
+                      <Link to="/work/ux-ui" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
                     </div>
                   </div>
                 </div>

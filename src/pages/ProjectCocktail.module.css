@@ -143,6 +143,9 @@
 
 .sectionNum {
   color: #6c9de5;
+  font-size: 4rem;
+  font-weight: 900;
+  margin-right: 0.35rem;
 }
 
 .overviewBody {

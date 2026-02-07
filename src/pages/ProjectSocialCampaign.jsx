@@ -78,7 +78,7 @@ function ProjectSocialCampaign() {
 
             <div>
               <h2 className={styles.overviewHeading}>
-                <span className={styles.sectionNum}>01</span> / Project Overview
+                <span className={styles.sectionNum}>01</span> Project Overview
               </h2>
               <p className={styles.overviewBody}>
                 This project involved a year-long social media visual strategy for Busch Beer, specifically for their
@@ -113,7 +113,7 @@ function ProjectSocialCampaign() {
               </div>
               <div className={styles.sectionRowText}>
                 <h2 className={styles.overviewHeading}>
-                  <span className={styles.sectionNum}>02</span> / Design Strategy
+                  <span className={styles.sectionNum}>02</span> Design Strategy
                 </h2>
                 <p className={styles.overviewBody}>
                   The creative approach combines real photography with bold, comic-inspired illustrations to maintain
@@ -127,7 +127,7 @@ function ProjectSocialCampaign() {
 
             <div className={styles.igCarousel}>
               <h2 className={styles.overviewHeading}>
-                <span className={styles.sectionNum}>03</span> / IG post collection
+                <span className={styles.sectionNum}>03</span> IG post collection
               </h2>
 
               <div className={styles.igRow}>
