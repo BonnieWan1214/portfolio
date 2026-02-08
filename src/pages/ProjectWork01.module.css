@@ -387,6 +387,144 @@
   margin-top: 3rem;
 }
 
+.evolutionSection .overviewHeading {
+  margin-bottom: 1.5rem;
+}
+
+.evolutionIntro {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1.75rem 0;
+  max-width: 56em;
+}
+
+.evolutionList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 2.5rem;
+}
+
+.evolutionItem {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.evolutionImageBlock {
+  flex: 0 0 auto;
+  width: 38%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.evolutionImageWrap {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 402 / 874;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+}
+
+/* 每組依兩張圖中較高的那張設比例，兩張都能完整顯示、切換不跳動 */
+.evolutionImageWrapPair1 { aspect-ratio: 402 / 874; }
+.evolutionImageWrapPair2 { aspect-ratio: 804 / 1792; }
+.evolutionImageWrapPair3 { aspect-ratio: 402 / 874; }
+.evolutionImageWrapPair4 { aspect-ratio: 402 / 874; }
+
+.evolutionImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center top;
+  animation: evolutionImageIn 0.35s ease-out;
+}
+
+/* 第 3 組 before 圖稍放大，只裁下方 */
+.evolutionImageEnlarge {
+  transform: scale(1.08);
+  transform-origin: top center;
+}
+
+@keyframes evolutionImageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.evolutionLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.evolutionToggle {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.evolutionToggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.evolutionTextBlock {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.evolutionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #6c9de5;
+  margin: 0 0 0.15rem 0;
+}
+
+.evolutionText {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .evolutionList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .evolutionItem {
+    flex-direction: column;
+  }
+  .evolutionImageBlock {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
 /* Typography & Color panel */
 .typographyPanel {
   display: grid;

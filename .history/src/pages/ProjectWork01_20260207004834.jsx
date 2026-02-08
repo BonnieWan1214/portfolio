@@ -1,4 +1,4 @@
-import { useState, useEffect, startTransition } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -8,29 +8,10 @@ import userFlowImage from "../assets/Work01_user-flow.svg";
 import logoDesignSvg from "../assets/Work01_logodesign.svg";
 import componentsSvg from "../assets/Work01_components.svg";
 import heroImg from "../assets/Work01_hero img.jpg";
-import before1 from "../assets/Work01_before1.jpg";
-import after1 from "../assets/Work01_after1.jpg";
-import before2 from "../assets/Work01_before2.jpg";
-import after2 from "../assets/Work01_after2.jpg";
-import before3 from "../assets/Work01_before3.jpg";
-import after3 from "../assets/Work01_after3.jpg";
-import before4 from "../assets/Work01_before4.jpg";
-import after4 from "../assets/Work01_after4.jpg";
 
 function ProjectWork01() {
   const navigate = useNavigate();
   const [designTab, setDesignTab] = useState("typography");
-  const [evolutionPair1Before, setEvolutionPair1Before] = useState(true);
-  const [evolutionPair2Before, setEvolutionPair2Before] = useState(true);
-  const [evolutionPair3Before, setEvolutionPair3Before] = useState(true);
-  const [evolutionPair4Before, setEvolutionPair4Before] = useState(true);
-
-  useEffect(() => {
-    const preloadLogo = new Image();
-    preloadLogo.src = logoDesignSvg;
-    const preloadComponents = new Image();
-    preloadComponents.src = componentsSvg;
-  }, []);
 
   return (
     <>
@@ -262,7 +243,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                 <button
                   type="button"
                   className={`${styles.designBtn} ${designTab === "typography" ? styles.designBtnActive : ""}`}
-                  onClick={() => startTransition(() => setDesignTab("typography"))}
+                  onClick={() => setDesignTab("typography")}
                 >
                   <span className={styles.designBtnShine} aria-hidden />
                   Typography & Color
@@ -270,7 +251,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                 <button
                   type="button"
                   className={`${styles.designBtn} ${designTab === "logo" ? styles.designBtnActive : ""}`}
-                  onClick={() => startTransition(() => setDesignTab("logo"))}
+                  onClick={() => setDesignTab("logo")}
                 >
                   <span className={styles.designBtnShine} aria-hidden />
                   Logo
@@ -278,13 +259,13 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                 <button
                   type="button"
                   className={`${styles.designBtn} ${designTab === "components" ? styles.designBtnActive : ""}`}
-                  onClick={() => startTransition(() => setDesignTab("components"))}
+                  onClick={() => setDesignTab("components")}
                 >
                   <span className={styles.designBtnShine} aria-hidden />
                   Components
                 </button>
               </div>
-              <div className={styles.designTabContent} style={{ display: designTab === "typography" ? "block" : "none" }}>
+              {designTab === "typography" && (
                 <div className={styles.typographyPanel}>
                   <div className={styles.typographyColumn}>
                     <div className={styles.typographyFontGroup}>
@@ -340,133 +321,34 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                     </div>
                   </div>
                 </div>
+              )}
+              {designTab === "typography" && (
                 <p className={styles.designPanelDesc}>
                   We chose Alan Sans and Omnes for their clean, rounded forms that feel both <strong>professional</strong> and <strong>approachable</strong>, ensuring clarity and warmth throughout the interface.
                   Blue conveys <strong>trust</strong> and <strong>security</strong> in childcare decisions, while green represents <strong>work</strong> and <strong>growth</strong>. Together, the colors create a balanced visual language that reflects <strong>stability</strong> and <strong>support</strong> in managing both career and family life.
                 </p>
-              </div>
-              <div className={styles.designTabContent} style={{ display: designTab === "logo" ? "block" : "none" }}>
-                <div className={styles.designPanel}>
-                  <div className={styles.designPanelImageWrap}>
-                    <img src={logoDesignSvg} alt="Logo design" className={styles.designPanelImage} />
+              )}
+              {designTab === "logo" && (
+                <>
+                  <div className={styles.designPanel}>
+                    <div className={styles.designPanelImageWrap}>
+                      <img src={logoDesignSvg} alt="Logo design" className={styles.designPanelImage} />
+                    </div>
                   </div>
-                </div>
-                <p className={styles.designPanelDesc}>
-                  The logo merges a hammer with the letter "T" from Tandem, symbolizing craftsmanship and resilience while strengthening brand recognition. The handle is formed by two interwoven color blocks, representing career and childcare, strength and support, <strong>reflecting the idea that no parent has to carry both roles alone.</strong>
-                </p>
-              </div>
-              <div className={styles.designTabContent} style={{ display: designTab === "components" ? "block" : "none" }}>
+                  <p className={styles.designPanelDesc}>
+                    The logo merges a hammer with the letter "T" from Tandem, symbolizing craftsmanship and resilience while strengthening brand recognition. The handle is formed by two interwoven color blocks, representing career and childcare, strength and support, <strong>reflecting the idea that no parent has to carry both roles alone.</strong>
+                  </p>
+                </>
+              )}
+              {designTab === "components" && (
                 <div className={styles.designPanel}>
                   <div className={styles.designPanelImageWrap}>
                     <img src={componentsSvg} alt="Components" className={styles.designPanelImage} />
                   </div>
                 </div>
-              </div>
+              )}
             <div className={styles.evolutionSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>08</span> Design Evolution</h2>
-              <p className={styles.evolutionIntro}>To better align with the core values of trust and efficiency, we refined the interface through an iterative process. Here are the adjustments we made to the UI and UX design:</p>
-              <div className={styles.evolutionList}>
-                <div className={styles.evolutionItem}>
-                  <div className={styles.evolutionImageBlock}>
-                    <span className={styles.evolutionLabel}>{evolutionPair1Before ? "Before" : "After"}</span>
-                    <div className={`${styles.evolutionImageWrap} ${styles.evolutionImageWrapPair1}`}>
-                      <img
-                        key={evolutionPair1Before ? "b1" : "a1"}
-                        src={evolutionPair1Before ? before1 : after1}
-                        alt={evolutionPair1Before ? "Before" : "After"}
-                        className={styles.evolutionImage}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Color Refinement</p>
-                    <p className={styles.evolutionText}>The original palette utilized heavy blue and green tones that weighed down the user experience; by increasing the brightness and applying strategic gradients to specific areas, I replaced the static white background to inject energy into the interface.</p>
-                    <button
-                      type="button"
-                      className={styles.evolutionToggle}
-                      onClick={() => setEvolutionPair1Before((b) => !b)}
-                      aria-label="Toggle before / after"
-                    >
-                      {evolutionPair1Before ? "View After →" : "← View Before"}
-                    </button>
-                  </div>
-                </div>
-                <div className={styles.evolutionItem}>
-                  <div className={styles.evolutionImageBlock}>
-                    <span className={styles.evolutionLabel}>{evolutionPair2Before ? "Before" : "After"}</span>
-                    <div className={`${styles.evolutionImageWrap} ${styles.evolutionImageWrapPair2}`}>
-                      <img
-                        key={evolutionPair2Before ? "b2" : "a2"}
-                        src={evolutionPair2Before ? before2 : after2}
-                        alt={evolutionPair2Before ? "Before" : "After"}
-                        className={styles.evolutionImage}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Layout & Information Architecture</p>
-                    <p className={styles.evolutionText}>The original layout was boxy and text-heavy, creating visual clutter that hindered quick scanning; I reorganized the information with clear iconography and simplified the navigation, significantly improving scannability and ease of use.</p>
-                    <button
-                      type="button"
-                      className={styles.evolutionToggle}
-                      onClick={() => setEvolutionPair2Before((b) => !b)}
-                      aria-label="Toggle before / after"
-                    >
-                      {evolutionPair2Before ? "View After →" : "← View Before"}
-                    </button>
-                  </div>
-                </div>
-                <div className={styles.evolutionItem}>
-                  <div className={styles.evolutionImageBlock}>
-                    <span className={styles.evolutionLabel}>{evolutionPair3Before ? "Before" : "After"}</span>
-                    <div className={`${styles.evolutionImageWrap} ${styles.evolutionImageWrapPair3}`}>
-                      <img
-                        key={evolutionPair3Before ? "b3" : "a3"}
-                        src={evolutionPair3Before ? before3 : after3}
-                        alt={evolutionPair3Before ? "Before" : "After"}
-                        className={`${styles.evolutionImage} ${evolutionPair3Before ? styles.evolutionImageEnlarge : ""}`}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Streamlined Workflow</p>
-                    <p className={styles.evolutionText}>The original day-by-day request process was repetitive and fragmented. I introduced a weekly view that allows users to plan their entire schedule on a single screen, significantly reducing friction and simplifying the booking experience.</p>
-                    <button
-                      type="button"
-                      className={styles.evolutionToggle}
-                      onClick={() => setEvolutionPair3Before((b) => !b)}
-                      aria-label="Toggle before / after"
-                    >
-                      {evolutionPair3Before ? "View After →" : "← View Before"}
-                    </button>
-                  </div>
-                </div>
-                <div className={styles.evolutionItem}>
-                  <div className={styles.evolutionImageBlock}>
-                    <span className={styles.evolutionLabel}>{evolutionPair4Before ? "Before" : "After"}</span>
-                    <div className={`${styles.evolutionImageWrap} ${styles.evolutionImageWrapPair4}`}>
-                      <img
-                        key={evolutionPair4Before ? "b4" : "a4"}
-                        src={evolutionPair4Before ? before4 : after4}
-                        alt={evolutionPair4Before ? "Before" : "After"}
-                        className={styles.evolutionImage}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Improved Readability</p>
-                    <p className={styles.evolutionText}>The original text-heavy list made it difficult to distinguish between users at a glance. I introduced card-based layouts with profile avatars and prioritized key information, transforming a cluttered data list into an intuitive, person-centric interface.</p>
-                    <button
-                      type="button"
-                      className={styles.evolutionToggle}
-                      onClick={() => setEvolutionPair4Before((b) => !b)}
-                      aria-label="Toggle before / after"
-                    >
-                      {evolutionPair4Before ? "View After →" : "← View Before"}
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
             </div>
           </div>

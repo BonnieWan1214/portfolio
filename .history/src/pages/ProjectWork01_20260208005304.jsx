@@ -364,7 +364,6 @@ It allows parents to find childcare easily, reducing stress and improving work-l
               </div>
             <div className={styles.evolutionSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>08</span> Design Evolution</h2>
-              <p className={styles.evolutionIntro}>To better align with the core values of trust and efficiency, we refined the interface through an iterative process. Here are the adjustments we made to the UI and UX design:</p>
               <div className={styles.evolutionList}>
                 <div className={styles.evolutionItem}>
                   <div className={styles.evolutionImageBlock}>
@@ -380,7 +379,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                   <div className={styles.evolutionTextBlock}>
                     <p className={styles.evolutionTitle}>Color Refinement</p>
-                    <p className={styles.evolutionText}>The original palette utilized heavy blue and green tones that weighed down the user experience; by increasing the brightness and applying strategic gradients to specific areas, I replaced the static white background to inject energy into the interface.</p>
+                    <p className={styles.evolutionText}>The original palette utilized heavy blue and green tones that weighed down the user experience; by increasing the brightness and applying strategic gradients to specific areas, I replaced the static white background to inject energy and modern depth into the interface.</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
@@ -404,8 +403,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                     </div>
                   </div>
                   <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Layout & Information Architecture</p>
-                    <p className={styles.evolutionText}>The original layout was boxy and text-heavy, creating visual clutter that hindered quick scanning; I reorganized the information with clear iconography and simplified the navigation, significantly improving scannability and ease of use.</p>
+                    <p className={styles.evolutionText}>[Your description for this before/after pair.]</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
@@ -429,8 +427,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                     </div>
                   </div>
                   <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Streamlined Workflow</p>
-                    <p className={styles.evolutionText}>The original day-by-day request process was repetitive and fragmented. I introduced a weekly view that allows users to plan their entire schedule on a single screen, significantly reducing friction and simplifying the booking experience.</p>
+                    <p className={styles.evolutionText}>[Your description for this before/after pair.]</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
@@ -454,8 +451,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                     </div>
                   </div>
                   <div className={styles.evolutionTextBlock}>
-                    <p className={styles.evolutionTitle}>Improved Readability</p>
-                    <p className={styles.evolutionText}>The original text-heavy list made it difficult to distinguish between users at a glance. I introduced card-based layouts with profile avatars and prioritized key information, transforming a cluttered data list into an intuitive, person-centric interface.</p>
+                    <p className={styles.evolutionText}>[Your description for this before/after pair.]</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
