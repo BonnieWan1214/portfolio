@@ -16,14 +16,10 @@ import before3 from "../assets/Work01_before3.jpg";
 import after3 from "../assets/Work01_after3.jpg";
 import before4 from "../assets/Work01_before4.jpg";
 import after4 from "../assets/Work01_after4.jpg";
-import keyfeature1 from "../assets/Work01_keyfeature1.mp4";
-import keyfeature2 from "../assets/Work01_keyfeature2.mp4";
-import keyfeature3 from "../assets/Work01_keyfeature3.mp4";
 
 function ProjectWork01() {
   const navigate = useNavigate();
   const [designTab, setDesignTab] = useState("typography");
-  const [keyFeatureTab, setKeyFeatureTab] = useState("scheduling");
   const [evolutionPair1Before, setEvolutionPair1Before] = useState(true);
   const [evolutionPair2Before, setEvolutionPair2Before] = useState(true);
   const [evolutionPair3Before, setEvolutionPair3Before] = useState(true);
@@ -66,27 +62,6 @@ function ProjectWork01() {
                   <span className={styles.toolPill}>CSS3</span>
                 </div>
               </div>
-              <div className={styles.finalProductRow}>
-                <span className={styles.finalProductLabel}>Final product</span>
-                <div className={styles.finalProductBtns}>
-                  <a
-                    href="https://www.tandem-app.com/sign-in?redirect_url=https%3A%2F%2Fwww.tandem-app.com%2F"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.finalProductBtn}
-                  >
-                    View coded app
-                  </a>
-                  <a
-                    href="https://www.figma.com/proto/98OrmiJpKUOwDCuckMRcah/Tandem-High-fi?node-id=7635-15682&m=dev&scaling=scale-down&content-scaling=fixed&page-id=7635%3A13393&starting-point-node-id=7635%3A15728&show-proto-sidebar=1&t=uXX2psnbheW3ZSGK-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.finalProductBtn}
-                  >
-                    View prototype
-                  </a>
-                </div>
-              </div>
             </div>
           </aside>
           <div className={styles.content}>
@@ -103,78 +78,6 @@ function ProjectWork01() {
 parents in managing their responsibilities, providing trustworthy recommendations and reliable chilacare options.
 It allows parents to find childcare easily, reducing stress and improving work-life balance
               </p>
-              <div className={styles.keyFeatureTabContent} style={{ display: keyFeatureTab === "scheduling" ? "block" : "none" }}>
-                <div className={styles.keyFeatureRow}>
-                  <div className={styles.keyFeatureVideoWrap}>
-                    <video src={keyfeature1} className={styles.keyFeatureVideo} controls loop muted playsInline />
-                  </div>
-                  <div className={styles.keyFeatureRightCol}>
-                    <h3 className={styles.keyFeaturesHeading}>Key Features</h3>
-                    <div className={styles.keyFeatureBtns}>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "scheduling" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("scheduling"))}><span className={styles.designBtnShine} aria-hidden />AI-POWERED SCHEDULING</button>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "booking" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("booking"))}><span className={styles.designBtnShine} aria-hidden />SEAMLESS NANNY BOOKING</button>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "sharing" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("sharing"))}><span className={styles.designBtnShine} aria-hidden />SECURE NANNY SHARING</button>
-                    </div>
-                    <div className={styles.keyFeatureTextWrap}>
-                    <div className={styles.keyFeatureText}>
-                      <ul className={styles.keyFeatureList}>
-                        <li>Smart schedule analysis for childcare planning</li>
-                        <li>Integrated scanning and voice input for schedule uploads</li>
-                        <li>Auto-filled calendars</li>
-                      </ul>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.keyFeatureTabContent} style={{ display: keyFeatureTab === "booking" ? "block" : "none" }}>
-                <div className={styles.keyFeatureRow}>
-                  <div className={styles.keyFeatureVideoWrap}>
-                    <video src={keyfeature2} className={styles.keyFeatureVideo} controls loop muted playsInline />
-                  </div>
-                  <div className={styles.keyFeatureRightCol}>
-                    <h3 className={styles.keyFeaturesHeading}>Key Features</h3>
-                    <div className={styles.keyFeatureBtns}>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "scheduling" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("scheduling"))}><span className={styles.designBtnShine} aria-hidden />AI-POWERED SCHEDULING</button>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "booking" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("booking"))}><span className={styles.designBtnShine} aria-hidden />SEAMLESS NANNY BOOKING</button>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "sharing" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("sharing"))}><span className={styles.designBtnShine} aria-hidden />SECURE NANNY SHARING</button>
-                    </div>
-                    <div className={styles.keyFeatureTextWrap}>
-                    <div className={styles.keyFeatureText}>
-                      <ul className={styles.keyFeatureList}>
-                        <li>Automatic alerts for childcare gaps</li>
-                        <li>Instant nanny requests in one tap</li>
-                        <li>Verified caregiver network</li>
-                      </ul>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.keyFeatureTabContent} style={{ display: keyFeatureTab === "sharing" ? "block" : "none" }}>
-                <div className={styles.keyFeatureRow}>
-                  <div className={styles.keyFeatureVideoWrap}>
-                    <video src={keyfeature3} className={styles.keyFeatureVideo} controls loop muted playsInline />
-                  </div>
-                  <div className={styles.keyFeatureRightCol}>
-                    <h3 className={styles.keyFeaturesHeading}>Key Features</h3>
-                    <div className={styles.keyFeatureBtns}>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "scheduling" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("scheduling"))}><span className={styles.designBtnShine} aria-hidden />AI-POWERED SCHEDULING</button>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "booking" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("booking"))}><span className={styles.designBtnShine} aria-hidden />SEAMLESS NANNY BOOKING</button>
-                      <button type="button" className={`${styles.keyFeatureBtn} ${keyFeatureTab === "sharing" ? styles.keyFeatureBtnActive : ""}`} onClick={() => startTransition(() => setKeyFeatureTab("sharing"))}><span className={styles.designBtnShine} aria-hidden />SECURE NANNY SHARING</button>
-                    </div>
-                    <div className={styles.keyFeatureTextWrap}>
-                    <div className={styles.keyFeatureText}>
-                      <ul className={styles.keyFeatureList}>
-                        <li>Share caregivers with verified nearby families</li>
-                        <li>Reduce costs through shared care</li>
-                        <li>Build a reliable support network</li>
-                      </ul>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div className={styles.problemSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>02</span> Problem Statement</h2>
@@ -203,7 +106,11 @@ It allows parents to find childcare easily, reducing stress and improving work-l
             <div className={styles.researchSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>03</span> Research & Analysis</h2>
               <p className={styles.overviewBody}>
-                To explore users' needs and challenges, we used a mixed research approach, including one in-person interview, eight online surveys, and additional secondary research from online community discussions, the reserch focused on work schedules, childcare availability and privacy concerns.
+                To explore users' needs and challenges, we used a mixed research approach, including one in-person interview, eight online surveys, and additional secondary research from online community discussions.
+              </p>
+              <h3 className={styles.researchFocusHeading}>Research Focus</h3>
+              <p className={styles.overviewBody}>
+                To better understand trade parents' daily challenges, our interview and survey focused on work schedules, childcare availability gaps, provider reliability, privacy concerns, and openness to digital solutions.
               </p>
               <div className={styles.researchBlocks}>
                 <div className={styles.researchBlockFull}>
@@ -435,7 +342,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                 </div>
                 <p className={styles.designPanelDesc}>
                   We chose Alan Sans and Omnes for their clean, rounded forms that feel both <strong>professional and approachable</strong>, ensuring clarity and warmth throughout the interface.
-                  Blue conveys trust and security in childcare decisions, while green represents work and growth. Together, the colors create a balanced visual language that reflects <strong>stability and support</strong> in managing both career and family life.
+                  Blue conveys <strong>trust</strong> and <strong>security</strong> in childcare decisions, while green represents work and growth. Together, the colors create a balanced visual language that reflects <strong>stability and support</strong> in managing both career and family life.
                 </p>
               </div>
               <div className={styles.designTabContent} style={{ display: designTab === "logo" ? "block" : "none" }}>
@@ -472,14 +379,14 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                   <div className={styles.evolutionTextBlock}>
                     <p className={styles.evolutionTitle}>Color Refinement</p>
-                    <p className={styles.evolutionText}>The original heavy blue and green palette weighed down the experience. We brightened the tones and introduced strategic gradients to replace the static white background, adding energy and depth to the interface.</p>
+                    <p className={styles.evolutionText}>The original palette utilized heavy blue and green tones that weighed down the user experience; by increasing the brightness and applying strategic gradients to specific areas, I replaced the static white background to inject energy into the interface.</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
                       onClick={() => setEvolutionPair1Before((b) => !b)}
                       aria-label="Toggle before / after"
                     >
-                      {evolutionPair1Before ? "← View After" : "← View Before"}
+                      {evolutionPair1Before ? "View After →" : "← View Before"}
                     </button>
                   </div>
                 </div>
@@ -497,14 +404,14 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                   <div className={styles.evolutionTextBlock}>
                     <p className={styles.evolutionTitle}>Layout & Information Architecture</p>
-                    <p className={styles.evolutionText}>The boxy, text-heavy layout created visual clutter. We restructured the content with clear iconography and simplified navigation, improving clarity and scannability.</p>
+                    <p className={styles.evolutionText}>The original layout was boxy and text-heavy, creating visual clutter that hindered quick scanning; I reorganized the information with clear iconography and simplified the navigation, significantly improving scannability and ease of use.</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
                       onClick={() => setEvolutionPair2Before((b) => !b)}
                       aria-label="Toggle before / after"
                     >
-                      {evolutionPair2Before ? "← View After" : "← View Before"}
+                      {evolutionPair2Before ? "View After →" : "← View Before"}
                     </button>
                   </div>
                 </div>
@@ -522,14 +429,14 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                   <div className={styles.evolutionTextBlock}>
                     <p className={styles.evolutionTitle}>Streamlined Workflow</p>
-                    <p className={styles.evolutionText}>The day-by-day request flow felt repetitive and fragmented. We introduced a weekly view that consolidates scheduling into one screen, reducing friction and simplifying booking.</p>
+                    <p className={styles.evolutionText}>The original day-by-day request process was repetitive and fragmented. I introduced a weekly view that allows users to plan their entire schedule on a single screen, significantly reducing friction and simplifying the booking experience.</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
                       onClick={() => setEvolutionPair3Before((b) => !b)}
                       aria-label="Toggle before / after"
                     >
-                      {evolutionPair3Before ? "← View After" : "← View Before"}
+                      {evolutionPair3Before ? "View After →" : "← View Before"}
                     </button>
                   </div>
                 </div>
@@ -547,14 +454,14 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                   <div className={styles.evolutionTextBlock}>
                     <p className={styles.evolutionTitle}>Improved Readability</p>
-                    <p className={styles.evolutionText}>The dense text list made it hard for users to distinguish. We implemented card-based layouts with profile avatars and highlighted key information, creating a more intuitive, user-centered interface.</p>
+                    <p className={styles.evolutionText}>The original text-heavy list made it difficult to distinguish between users at a glance. I introduced card-based layouts with profile avatars and prioritized key information, transforming a cluttered data list into an intuitive, person-centric interface.</p>
                     <button
                       type="button"
                       className={styles.evolutionToggle}
                       onClick={() => setEvolutionPair4Before((b) => !b)}
                       aria-label="Toggle before / after"
                     >
-                      {evolutionPair4Before ? "← View After" : "← View Before"}
+                      {evolutionPair4Before ? "View After →" : "← View Before"}
                     </button>
                   </div>
                 </div>

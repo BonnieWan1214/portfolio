@@ -3,7 +3,10 @@
   z-index: 1;
   min-height: 100vh;
   padding-top: 52px;
+  padding-left: 4rem;
+  padding-right: 4rem;
   background: #121212;
+  box-sizing: border-box;
 }
 
 .layout {
@@ -13,15 +16,16 @@
 
 .sidebar {
   position: fixed;
-  left: 0;
+  left: 4rem;
   top: 52px;
-  width: 20%;
+  width: calc((100vw - 8rem) * 0.2);
   height: calc(100vh - 52px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .sidebarInner {
@@ -44,7 +48,7 @@
 }
 
 .metaLabel {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -56,7 +60,7 @@
 }
 
 .metaValue {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #ffffff;
 }
 
@@ -67,7 +71,7 @@
 }
 
 .toolsLabel {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -88,24 +92,25 @@
 .toolPill {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
   cursor: default;
   pointer-events: none;
 }
 
 .content {
-  width: 80%;
+  width: calc((100vw - 8rem) * 0.8);
   min-width: 0;
-  margin-left: 20%;
+  margin-left: calc((100vw - 8rem) * 0.2);
   padding: 3rem 2rem 4rem;
+  box-sizing: border-box;
 }
 
 .imageWrapper {
@@ -124,7 +129,7 @@
 }
 
 .projectTitle {
-  font-size: 2.75rem;
+  font-size: 3.5rem;
   font-weight: 900;
   color: #ffffff;
   margin: 0 0 1.5rem 0;
