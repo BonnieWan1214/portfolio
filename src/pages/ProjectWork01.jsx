@@ -19,6 +19,7 @@ import after4 from "../assets/Work01_after4.jpg";
 import keyfeature1 from "../assets/Work01_keyfeature1.mp4";
 import keyfeature2 from "../assets/Work01_keyfeature2.mp4";
 import keyfeature3 from "../assets/Work01_keyfeature3.mp4";
+import promotionImg from "./Work01_promotion.png";
 
 function ProjectWork01() {
   const navigate = useNavigate();
@@ -557,6 +558,19 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                       {evolutionPair4Before ? "← View After" : "← View Before"}
                     </button>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.reflectionSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>09</span> Reflection</h2>
+              <div className={styles.reflectionRow}>
+                <div className={styles.reflectionImageWrap}>
+                  <img src={promotionImg} alt="Tandem promotion materials" className={styles.reflectionImage} />
+                </div>
+                <div className={styles.reflectionText}>
+                  <p>
+                    Collaborating within an 8-member team was a valuable experience. I was fully involved in the entire process, from initial research and insight gathering to final design. As one of the primary leads on the major UI overhaul, I pushed for this transformation to bridge the gap between the initial functional logic and the actual user experience. This journey taught me that design is a non-linear process—requiring patience, clear logical communication, and the agility to continuously refine based on team and user feedback.
+                  </p>
                 </div>
               </div>
             </div>

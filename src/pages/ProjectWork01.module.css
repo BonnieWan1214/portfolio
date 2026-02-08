@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.25rem;
   z-index: 1;
 }
 
@@ -34,18 +34,18 @@
 .metaRow {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .metaItem {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
 }
 
 .metaLabel {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -57,23 +57,23 @@
 }
 
 .metaValue {
-  font-size: 1rem;
+  font-size: 0.88rem;
   color: #ffffff;
 }
 
 .toolsRow {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .toolsLabel {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .toolsLabel::before {
@@ -83,20 +83,20 @@
 .toolPills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .toolPill {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: default;
   pointer-events: none;
@@ -105,12 +105,12 @@
 .finalProductRow {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .finalProductLabel {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -124,21 +124,21 @@
 .finalProductBtns {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .finalProductBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.85rem;
+  padding: 0.4rem 0.7rem;
   border-radius: 999px;
   border: 1px solid rgba(51, 115, 204, 0.5);
   background: rgba(51, 115, 204, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: #ffffff;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -401,7 +401,8 @@
 .personaSection .overviewHeading,
 .flowSection .overviewHeading,
 .designSection .overviewHeading,
-.evolutionSection .overviewHeading {
+.evolutionSection .overviewHeading,
+.reflectionSection .overviewHeading {
   margin-bottom: 1.5rem;
 }
 
@@ -1300,6 +1301,62 @@
   .evolutionImageBlock {
     width: 100%;
     max-width: 240px;
+  }
+}
+
+/* 09 Reflection */
+.reflectionSection {
+  margin-top: 4rem;
+}
+
+.reflectionRow {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.reflectionImageWrap {
+  flex: 0 0 45%;
+  max-width: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.reflectionImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.reflectionText {
+  flex: 1;
+  min-width: 0;
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.reflectionText p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .reflectionRow {
+    flex-direction: column;
+  }
+  .reflectionImageWrap {
+    flex: 0 0 auto;
+    max-width: 100%;
   }
 }
 
