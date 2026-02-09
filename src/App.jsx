@@ -329,8 +329,8 @@ function App() {
                   <div className={styles.workImageContainer}>
                     <img src={workUXUI02} alt="UX/UI Work 2" className={styles.workImage} />
                     <div className={styles.workImageOverlay}>
-                      <p className={styles.workImageText}>A social app for music lovers</p>
-                      <Link to="/work/ux-ui" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
+                      <p className={styles.workImageText}>A social app for inclusive foodies</p>
+                      <Link to="/work/sporkshare" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
                     </div>
                   </div>
                 </div>

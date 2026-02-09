@@ -1,5 +1,6 @@
-/* Layout - 不縮左右，保留完整內容寬度避免跑版 */
+/* Layout - 不縮左右，保留完整內容寬度避免跑版；左右與螢幕邊緣留白 */
 .main {
+  --work01-gutter: 1.5rem;
   position: relative;
   z-index: 1;
   min-height: 100vh;
@@ -14,9 +15,9 @@
 
 .sidebar {
   position: fixed;
-  left: 0;
+  left: var(--work01-gutter);
   top: 52px;
-  width: 20%;
+  width: calc((100vw - var(--work01-gutter) * 2) * 0.2);
   height: calc(100vh - 52px);
   display: flex;
   align-items: center;
@@ -131,7 +132,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.7rem;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.4rem 2.5rem;
   border-radius: 999px;
   border: 1px solid rgba(51, 115, 204, 0.5);
   background: rgba(51, 115, 204, 0.25);
@@ -157,9 +161,9 @@
 }
 
 .content {
-  width: 80%;
+  width: calc((100vw - var(--work01-gutter) * 2) * 0.8);
   min-width: 0;
-  margin-left: 20%;
+  margin-left: calc(var(--work01-gutter) + (100vw - var(--work01-gutter) * 2) * 0.2);
   padding: 3rem 2rem 4rem;
 }
 
