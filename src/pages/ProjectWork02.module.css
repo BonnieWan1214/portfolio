@@ -406,6 +406,7 @@
 /* Problem, Research, Empathy, Persona, Flow, Design, Evolution */
 .problemSection .overviewHeading,
 .researchSection .overviewHeading,
+.insightsSection .overviewHeading,
 .empathySection .overviewHeading,
 .personaSection .overviewHeading,
 .flowSection .overviewHeading,
@@ -593,6 +594,137 @@
 @media (max-width: 768px) {
   .researchBlocks {
     grid-template-columns: 1fr;
+  }
+}
+
+/* 04 From Data to Insights */
+.insightsSection {
+  margin-top: 4rem;
+}
+
+.insightsSection .overviewHeading {
+  margin-bottom: 2.5rem;
+}
+
+.insightsTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+}
+
+.insightsTableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.75rem 1.25rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.insightsTableHeaderCell {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insightsTableHeaderCell:first-child {
+  padding-right: 0;
+}
+
+.insightsTableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.75rem 1.25rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.insightsTableRow:last-child {
+  border-bottom: none;
+}
+
+.insightsTableRowLabel {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #6c9de5;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  padding-right: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insightsTableCell {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 0;
+}
+
+.insightsTableCell strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.insightsEmotionCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.insightsEmoji {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.insightsEmotionLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .insightsTableHeader,
+  .insightsTableRow {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .insightsTableHeader,
+  .insightsTableRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .insightsTableHeaderCell:first-child,
+  .insightsTableRowLabel {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .insightsTableRow {
+    padding: 1.25rem 0;
+  }
+  
+  .insightsTableCell {
+    margin-bottom: 0.75rem;
+  }
+  
+  .insightsTableCell:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -1038,6 +1170,31 @@
   align-items: stretch;
 }
 
+/* 底匡維持全寬，僅內容置中 */
+.typographyPanelWork02 {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.typographyPanelWork02Inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .typographyPanelWork02Inner {
+    grid-template-columns: 1fr;
+  }
+}
+
 .typographyColumn {
   display: flex;
   flex-direction: column;
@@ -1074,7 +1231,7 @@
 .colorCircleRow {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.35rem;
 }
 
 .colorCircle {
@@ -1083,6 +1240,12 @@
   border-radius: 50%;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.typographyPanelWork02 .colorCircle {
+  width: 16rem;
+  height: 2rem;
+  border-radius: 6px;
 }
 
 .colorCircleMeta {
@@ -1145,7 +1308,7 @@
 
 .designPanel {
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 1rem 2rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
@@ -1178,6 +1341,26 @@
 .designPanelDesc strong {
   font-weight: 900;
   color: #6c9de5;
+}
+
+.work02UiWrap {
+  margin-top: 2.5rem;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.work02UiImage {
+  width: 100%;
+  max-width: 72%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
 }
 
 /* 08 Design Evolution */

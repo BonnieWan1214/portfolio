@@ -7,10 +7,15 @@ import heroImg from "../assets/Work_landingpage_UXUI02.png";
 import keyfeature1 from "../assets/Work02_keyfeature1.mp4";
 import keyfeature2 from "../assets/Work02_keyfeature2.mp4";
 import keyfeature3 from "../assets/Work02_keyfeature3.mp4";
+import workflowImg from "../assets/Work02_workflow.png";
+import logoDesignSvg from "../assets/Work02_logo.svg";
+import componentsSvg from "../assets/Work02_component.svg";
+import work02Ui from "../assets/Work02_UI.png";
 
 function ProjectWork02() {
   const navigate = useNavigate();
   const [keyFeatureTab, setKeyFeatureTab] = useState("smartFilters");
+  const [designTab, setDesignTab] = useState("logo");
 
   return (
     <>
@@ -178,6 +183,181 @@ function ProjectWork02() {
                     </li>
                   </ul>
                 </div>
+              </div>
+            </div>
+            <div className={styles.insightsSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>04</span> From Data to Insights</h2>
+              <div className={styles.insightsTable}>
+                <div className={styles.insightsTableHeader}>
+                  <div className={styles.insightsTableHeaderCell}>Phase</div>
+                  <div className={styles.insightsTableHeaderCell}>Inspiration</div>
+                  <div className={styles.insightsTableHeaderCell}>Investigation</div>
+                  <div className={styles.insightsTableHeaderCell}>Validation</div>
+                  <div className={styles.insightsTableHeaderCell}>Decision</div>
+                </div>
+                <div className={styles.insightsTableRow}>
+                  <div className={styles.insightsTableRowLabel}>Action</div>
+                  <div className={styles.insightsTableCell}>Discovers trending food content via short-form videos.</div>
+                  <div className={styles.insightsTableCell}>Switches to maps or review apps to find specific details.</div>
+                  <div className={styles.insightsTableCell}>Deep-dives into forums or sites to verify allergen/dietary safety.</div>
+                  <div className={styles.insightsTableCell}>Saves screenshots or calls the restaurant for final confirmation.</div>
+                </div>
+                <div className={styles.insightsTableRow}>
+                  <div className={styles.insightsTableRowLabel}>Touchpoints</div>
+                  <div className={styles.insightsTableCell}>Instagram, TikTok, Facebook</div>
+                  <div className={styles.insightsTableCell}>Google Maps, Yelp, OpenRice</div>
+                  <div className={styles.insightsTableCell}>Reddit, Restaurant Website, Community Forums</div>
+                  <div className={styles.insightsTableCell}>Notes App, Phone, Camera Roll</div>
+                </div>
+                <div className={styles.insightsTableRow}>
+                  <div className={styles.insightsTableRowLabel}>User Thoughts</div>
+                  <div className={styles.insightsTableCell}>"This looks amazing! But do they have any gluten-free options?"</div>
+                  <div className={styles.insightsTableCell}>"The map doesn't show the full menu... I need to check their website."</div>
+                  <div className={styles.insightsTableCell}>"The AI summary says yes, but a reviewer said no. Who can I trust?"</div>
+                  <div className={styles.insightsTableCell}>"This is exhausting. I've opened 4 different apps just to plan one meal."</div>
+                </div>
+                <div className={styles.insightsTableRow}>
+                  <div className={styles.insightsTableRowLabel}>Emotion</div>
+                  <div className={styles.insightsTableCell}>
+                    <div className={styles.insightsEmotionCell}>
+                      <span className={styles.insightsEmoji}>😍</span>
+                      <span className={styles.insightsEmotionLabel}>(Excited)</span>
+                    </div>
+                  </div>
+                  <div className={styles.insightsTableCell}>
+                    <div className={styles.insightsEmotionCell}>
+                      <span className={styles.insightsEmoji}>😫</span>
+                      <span className={styles.insightsEmotionLabel}>(Frustrated)</span>
+                    </div>
+                  </div>
+                  <div className={styles.insightsTableCell}>
+                    <div className={styles.insightsEmotionCell}>
+                      <span className={styles.insightsEmoji}>🧐</span>
+                      <span className={styles.insightsEmotionLabel}>(Skeptical)</span>
+                    </div>
+                  </div>
+                  <div className={styles.insightsTableCell}>
+                    <div className={styles.insightsEmotionCell}>
+                      <span className={styles.insightsEmoji}>😤</span>
+                      <span className={styles.insightsEmotionLabel}>(Exhausted)</span>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.insightsTableRow}>
+                  <div className={styles.insightsTableRowLabel}>Insight</div>
+                  <div className={styles.insightsTableCell}><strong>Visual vs. Context Gap:</strong> Social content is visually stimulating but lacks critical dietary context.</div>
+                  <div className={styles.insightsTableCell}><strong>Information Fragmentation:</strong> Constant "platform shuffling" leads to drop-offs and decision fatigue.</div>
+                  <div className={styles.insightsTableCell}><strong>The Trust Deficit:</strong> Users distrust automated/AI info and crave verified, human-displayed data.</div>
+                  <div className={styles.insightsTableCell}><strong>High Interaction Cost:</strong> The current manual process is outdated and lacks a dedicated, unified home.</div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.sectionTransition}>
+              <p className={styles.sectionTransitionSmall}>FROM INSIGHT TO INTEGRATION</p>
+              <h2 className={styles.sectionTransitionLarge}>Bridging the gap into a single journey</h2>
+              <span className={styles.sectionTransitionArrow} aria-hidden>⌄</span>
+            </div>
+            <div className={styles.flowSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>05</span> Workflow</h2>
+              <div className={styles.flowImageWrap}>
+                <img src={workflowImg} alt="Sporkshare workflow" className={styles.flowImage} />
+              </div>
+            </div>
+            <div className={styles.designSection}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>06</span> Design System</h2>
+              <div className={styles.designBtns}>
+                <button
+                  type="button"
+                  className={`${styles.designBtn} ${designTab === "logo" ? styles.designBtnActive : ""}`}
+                  onClick={() => startTransition(() => setDesignTab("logo"))}
+                >
+                  <span className={styles.designBtnShine} aria-hidden />
+                  Logo
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.designBtn} ${designTab === "typography" ? styles.designBtnActive : ""}`}
+                  onClick={() => startTransition(() => setDesignTab("typography"))}
+                >
+                  <span className={styles.designBtnShine} aria-hidden />
+                  Typography & Color
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.designBtn} ${designTab === "components" ? styles.designBtnActive : ""}`}
+                  onClick={() => startTransition(() => setDesignTab("components"))}
+                >
+                  <span className={styles.designBtnShine} aria-hidden />
+                  Components
+                </button>
+              </div>
+              <div className={styles.designTabContent} style={{ display: designTab === "logo" ? "block" : "none" }}>
+                <div className={styles.designPanel}>
+                  <div className={styles.designPanelImageWrap}>
+                    <img src={logoDesignSvg} alt="Sporkshare logo" className={styles.designPanelImage} />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.designTabContent} style={{ display: designTab === "typography" ? "block" : "none" }}>
+                <div className={styles.typographyPanelWork02}>
+                  <div className={styles.typographyPanelWork02Inner}>
+                  <div className={styles.typographyColumn}>
+                    <div className={styles.typographyFontGroup}>
+                      <p className={styles.typographyFontName} style={{ fontFamily: "Roboto, sans-serif" }}>Roboto</p>
+                      <p className={styles.typographyWeights}>Regular / Medium / Bold</p>
+                    </div>
+                    <p className={styles.typographyAa} style={{ fontFamily: "Roboto, sans-serif" }}>Aa</p>
+                    <div className={styles.typographyBlock}>
+                      <span className={styles.typographyLabel}>Heading</span>
+                      <p className={styles.typographySample} style={{ fontFamily: "Roboto, sans-serif" }}>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />1234567890</p>
+                    </div>
+                    <div className={styles.typographyBlock}>
+                      <span className={styles.typographyLabel}>Text</span>
+                      <p className={styles.typographySample} style={{ fontFamily: "Roboto, sans-serif" }}>abcdefghijklmnopqrstuvwxyz<br />1234567890</p>
+                    </div>
+                  </div>
+                  <div className={styles.typographyColors}>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#18372F" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Primary</span>
+                        <span className={styles.colorCircleCode}>#18372F</span>
+                      </div>
+                    </div>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#88BF47" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Secondary</span>
+                        <span className={styles.colorCircleCode}>#88BF47</span>
+                      </div>
+                    </div>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#F36C2C" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Warning</span>
+                        <span className={styles.colorCircleCode}>#F36C2C</span>
+                      </div>
+                    </div>
+                    <div className={styles.colorCircleRow}>
+                      <div className={styles.colorCircle} style={{ background: "#EEECDF", borderColor: "rgba(255,255,255,0.3)" }} aria-hidden />
+                      <div className={styles.colorCircleMeta}>
+                        <span className={styles.colorCircleLabel}>Neutral</span>
+                        <span className={styles.colorCircleCode}>#EEECDF</span>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.designTabContent} style={{ display: designTab === "components" ? "block" : "none" }}>
+                <div className={styles.designPanel}>
+                  <div className={styles.designPanelImageWrap}>
+                    <img src={componentsSvg} alt="Sporkshare components" className={styles.designPanelImage} />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.work02UiWrap}>
+                <img src={work02Ui} alt="Sporkshare UI" className={styles.work02UiImage} />
               </div>
             </div>
           </div>
