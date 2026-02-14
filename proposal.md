@@ -8,3 +8,5 @@ https://pin.it/5YCbFCGzL
 
 Mockup:
 https://www.figma.com/board/qCxUfTktICKgMBkyfIkaOq/Punch-up--proposal?node-id=0-1&t=ZTZLqsiYgdIDYQR7-1
+
+For implementation, I plan to use shadcn UI for reusable components and layout, and OGL to handle the interactive 3D or animated effects in the gallery
