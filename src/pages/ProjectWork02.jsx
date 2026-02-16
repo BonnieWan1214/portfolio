@@ -1,4 +1,4 @@
-import { useState, startTransition } from "react";
+import { useState, startTransition, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -8,14 +8,32 @@ import keyfeature1 from "../assets/Work02_keyfeature1.mp4";
 import keyfeature2 from "../assets/Work02_keyfeature2.mp4";
 import keyfeature3 from "../assets/Work02_keyfeature3.mp4";
 import workflowImg from "../assets/Work02_workflow.png";
-import logoDesignSvg from "../assets/Work02_logo.svg";
+import logoDesignPng from "../assets/Work02_logo.png";
 import componentsSvg from "../assets/Work02_component.svg";
 import work02Ui from "../assets/Work02_UI.png";
+import work02Video from "../assets/Work02_Video.mp4";
 
 function ProjectWork02() {
   const navigate = useNavigate();
   const [keyFeatureTab, setKeyFeatureTab] = useState("smartFilters");
   const [designTab, setDesignTab] = useState("logo");
+  const refDesignSection = useRef(null);
+  const refPromotionVideo = useRef(null);
+  const refKeyFeatures = useRef(null);
+
+  const scrollToTapToSave = useCallback(() => {
+    startTransition(() => setKeyFeatureTab("tapToSave"));
+    refKeyFeatures.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const scrollToLogo = useCallback(() => {
+    startTransition(() => setDesignTab("logo"));
+    refDesignSection.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const scrollToPromotionVideo = useCallback(() => {
+    refPromotionVideo.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   return (
     <>
@@ -26,7 +44,7 @@ function ProjectWork02() {
             <div className={styles.sidebarInner}>
               <div className={styles.metaRow}>
                 <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Role</span>
+                  <span className={styles.metaLabel}>My Role</span>
                   <span className={styles.metaValue}>UI/UX Designer</span>
                   <span className={styles.metaValue}>Logo Designer</span>
                 </div>
@@ -35,11 +53,31 @@ function ProjectWork02() {
                   <span className={styles.metaValue}>2025 Jan-Apr</span>
                 </div>
               </div>
+              <div className={styles.contributionsRow}>
+                <span className={styles.contributionsLabel}>Team & Personal Contributions</span>
+                <p className={styles.contributionsBody}>
+                  As part of a 5-person team, I was involved in the end-to-end process, specifically leading the{" "}
+                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToTapToSave}>
+                    UI Design
+                  </button>{" "}
+                  for the Tap to save feature,{" "}
+                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToLogo}>
+                    Logo Design
+                  </button>
+                  , and{" "}
+                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToPromotionVideo}>
+                    Promotion Video
+                  </button>
+                  .
+                </p>
+              </div>
               <div className={styles.toolsRow}>
                 <span className={styles.toolsLabel}>Tools</span>
                 <div className={styles.toolPills}>
                   <span className={styles.toolPill}>Adobe Illustrator</span>
                   <span className={styles.toolPill}>Adobe Photoshop</span>
+                  <span style={{ width: '100%', flexBasis: '100%' }}></span>
+                  <span className={styles.toolPill}>Adobe After Effects</span>
                   <span style={{ width: '100%', flexBasis: '100%' }}></span>
                   <span className={styles.toolPill}>Figma</span>
                 </div>
@@ -53,7 +91,7 @@ function ProjectWork02() {
             <div className={styles.imageWrapper}>
               <img src={heroImg} alt="Sporkshare app hero" className={styles.projectImage} />
             </div>
-            <div className={styles.overviewSection}>
+            <div className={styles.overviewSection} ref={refKeyFeatures}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>01</span> Project Overview</h2>
               <p className={styles.overviewBody}>
                 Sporkshare is a foodie social platform designed to simplify dining for individuals with specific dietary restrictions or unique preferences. Unlike generic review platforms that overlook allergies and cultural requirements, Sporkshare empowers users to discover the perfect meal through precise filtering, personalized collections, and community-driven recommendations.
@@ -263,7 +301,7 @@ function ProjectWork02() {
                 <img src={workflowImg} alt="Sporkshare workflow" className={styles.flowImage} />
               </div>
             </div>
-            <div className={styles.designSection}>
+            <div className={styles.designSection} ref={refDesignSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>06</span> Design System</h2>
               <div className={styles.designBtns}>
                 <button
@@ -294,8 +332,11 @@ function ProjectWork02() {
               <div className={styles.designTabContent} style={{ display: designTab === "logo" ? "block" : "none" }}>
                 <div className={styles.designPanel}>
                   <div className={styles.designPanelImageWrap}>
-                    <img src={logoDesignSvg} alt="Sporkshare logo" className={styles.designPanelImage} />
+                    <img src={logoDesignPng} alt="Sporkshare logo" className={styles.designPanelImage} />
                   </div>
+                  <p className={styles.designPanelDescLogo}>
+                    The Sporkshare logo combines a location pin, our signature utensil, and a bowl filled with diverse options. This visual language embodies the product's core mission: placing the user's dietary needs at the forefront of navigation, allowing users to effortlessly explore and find their ideal restaurants from integrated dietary information.
+                  </p>
                 </div>
               </div>
               <div className={styles.designTabContent} style={{ display: designTab === "typography" ? "block" : "none" }}>
@@ -359,6 +400,15 @@ function ProjectWork02() {
               <div className={styles.work02UiWrap}>
                 <img src={work02Ui} alt="Sporkshare UI" className={styles.work02UiImage} />
               </div>
+            </div>
+            <div className={styles.overviewSection} ref={refPromotionVideo}>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>07</span> Promotion Video</h2>
+              <div className={styles.promotionVideoWrap}>
+                <video src={work02Video} className={styles.promotionVideo} controls loop muted playsInline />
+              </div>
+              <p className={styles.overviewBody}>
+                To alleviate the stress users with dietary restrictions face when searching for restaurants, I chose an upbeat tempo and lively animations to present Sporkshare. The video focuses on our three core features, demonstrating how users can intuitively find their ideal dining destinations with both ease and precision while meeting their specific dietary needs
+              </p>
             </div>
           </div>
         </div>

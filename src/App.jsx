@@ -288,7 +288,7 @@ function App() {
                   ENFJ
                 </motion.div>
               </div>
-            </div>
+      </div>
             <motion.div
               className={styles.aboutScrollWrap}
               initial={{ opacity: 0 }}
@@ -297,7 +297,7 @@ function App() {
             >
               <button className={styles.scrollCircleButton} onClick={handleScrollToWork} aria-label="Scroll to Work section">
                 ⌄
-              </button>
+        </button>
             </motion.div>
           </div>
         </section>
@@ -307,8 +307,8 @@ function App() {
               <h2 className={styles.workTitle}>Selected Works</h2>
               <p className={styles.workSubtitle}>
                 A curated collection of projects that balance aesthetic craft with strategic results.
-              </p>
-            </div>
+        </p>
+      </div>
             <div className={styles.workRows}>
               <div className={styles.workRow}>
                 <div className={styles.workText}>
