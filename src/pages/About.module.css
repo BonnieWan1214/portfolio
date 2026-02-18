@@ -84,6 +84,181 @@
   transform: none;
 }
 
+.aboutIntro {
+  margin-top: -4rem;
+  width: 100%;
+  text-align: left;
+}
+
+.aboutIntroBold {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.aboutIntroBody {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1rem 0;
+}
+
+.aboutIntroBody:last-child {
+  margin-bottom: 0;
+}
+
+.aboutTagsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.aboutTagPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.resumeWrap {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resumeBtn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.resumeBtn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.resumeBtn:hover .resumeBtnShine {
+  animation: resumeShine 0.7s ease forwards;
+}
+
+.resumeBtnShine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 25%,
+    rgba(255, 255, 255, 0.08) 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.08) 65%,
+    transparent 75%,
+    transparent 100%
+  );
+  pointer-events: none;
+  animation: resumeShineAuto 6s ease-in-out infinite;
+}
+
+@keyframes resumeShine {
+  to { left: 100%; }
+}
+
+@keyframes resumeShineAuto {
+  0%, 40%, 100% { left: -100%; }
+  55% { left: 100%; }
+}
+
+.workExp {
+  margin-top: 5rem;
+  width: 100%;
+}
+
+.workExpHeading {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.workExpListWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.workExpList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0 2.5rem;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.workExpBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem 0;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.workExpYear {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.workExpTitleCell {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.workExpCompany {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 .aboutContent {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
