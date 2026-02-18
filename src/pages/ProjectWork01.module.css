@@ -62,6 +62,51 @@
   color: #ffffff;
 }
 
+.contributionsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.contributionsLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contributionsLabel::before {
+  content: '• ';
+}
+
+.contributionsBody {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.sidebarHighlightLink {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-weight: 700;
+  color: #6c9de5;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebarHighlightLink:hover {
+  color: #8bb3f0;
+}
+
 .toolsRow {
   display: flex;
   flex-direction: column;
@@ -1178,11 +1223,20 @@
   margin-bottom: 1.5rem;
 }
 
+.evolutionIntroBox {
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+
 .evolutionIntro {
   font-size: 1rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 1.75rem 0;
+  margin: 0;
   max-width: 56em;
 }
 

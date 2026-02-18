@@ -229,9 +229,9 @@ function App() {
                     <div className={styles.statLabel}>Industries Explored</div>
                   </div>
                 </div>
-                <button type="button" className={styles.aboutCtaButton}>
+                <Link to="/about" className={styles.aboutCtaButton}>
                   SEE MY JOURNEY→
-                </button>
+                </Link>
               </div>
               <div className={styles.aboutImage} ref={aboutImageRef}>
                 <div className={styles.aboutImageFrame}>

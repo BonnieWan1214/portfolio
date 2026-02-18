@@ -1,4 +1,4 @@
-import { useState, useEffect, startTransition } from "react";
+import { useState, useEffect, startTransition, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -29,6 +29,17 @@ function ProjectWork01() {
   const [evolutionPair2Before, setEvolutionPair2Before] = useState(true);
   const [evolutionPair3Before, setEvolutionPair3Before] = useState(true);
   const [evolutionPair4Before, setEvolutionPair4Before] = useState(true);
+  const refDesignSection = useRef(null);
+  const refEvolutionSection = useRef(null);
+
+  const scrollToLogo = useCallback(() => {
+    startTransition(() => setDesignTab("logo"));
+    refDesignSection.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const scrollToDesignEvolution = useCallback(() => {
+    refEvolutionSection.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   useEffect(() => {
     const preloadLogo = new Image();
@@ -46,7 +57,7 @@ function ProjectWork01() {
             <div className={styles.sidebarInner}>
               <div className={styles.metaRow}>
                 <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Role</span>
+                  <span className={styles.metaLabel}>My Role</span>
                   <span className={styles.metaValue}>UI / UX Designer</span>
                   <span className={styles.metaValue}>Logo Designer</span>
                   <span className={styles.metaValue}>Frontend Developer</span>
@@ -55,6 +66,20 @@ function ProjectWork01() {
                   <span className={styles.metaLabel}>Duration</span>
                   <span className={styles.metaValue}>Sep – Dec 2025</span>
                 </div>
+              </div>
+              <div className={styles.contributionsRow}>
+                <span className={styles.contributionsLabel}>Team & Personal Contributions</span>
+                <p className={styles.contributionsBody}>
+                  Within this 8-person team, I contributed to the full project lifecycle and led the{" "}
+                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToLogo}>
+                    Logo Design
+                  </button>{" "}
+                  and{" "}
+                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToDesignEvolution}>
+                    Design Evolution
+                  </button>
+                  .
+                </p>
               </div>
               <div className={styles.toolsRow}>
                 <span className={styles.toolsLabel}>Tools</span>
@@ -350,7 +375,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                 <img src={userFlowImage} alt="User flow" className={styles.flowImage} />
               </div>
             </div>
-            <div className={styles.designSection}>
+            <div className={styles.designSection} ref={refDesignSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>07</span> Design System</h2>
               <div className={styles.designBtns}>
                 <button
@@ -456,8 +481,13 @@ It allows parents to find childcare easily, reducing stress and improving work-l
                   </div>
                 </div>
               </div>
-            <div className={styles.evolutionSection}>
+            <div className={styles.evolutionSection} ref={refEvolutionSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>08</span> Design Evolution</h2>
+              <div className={styles.evolutionIntroBox}>
+                <p className={styles.evolutionIntro}>
+                  As each feature was initially developed in silos, the design lacked cohesion and felt visually heavy. I led a UI overhaul to unify the interface, modernizing the aesthetic into a more intuitive and lightweight experience for Tandem users.
+                </p>
+              </div>
               <div className={styles.evolutionList}>
                 <div className={styles.evolutionItem}>
                   <div className={styles.evolutionImageBlock}>

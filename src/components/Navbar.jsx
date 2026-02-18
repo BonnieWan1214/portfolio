@@ -10,11 +10,11 @@ function Navbar() {
           <img src={logoImage} alt="Bonnie Wan Logo" className={styles.logoImage} />
         </Link>
         <div className={styles.navLinks}>
-          <a href="#about" className={styles.navLink}>About</a>
+          <Link to="/about" className={styles.navLink}>About</Link>
           <span className={styles.navSeparator}>|</span>
-          <a href="#work" className={styles.navLink}>Work</a>
+          <Link to="/work" className={styles.navLink}>Work</Link>
           <span className={styles.navSeparator}>|</span>
-          <a href="#contact" className={styles.navLink}>Contact</a>
+          <a href="/#contact" className={styles.navLink}>Contact</a>
         </div>
       </div>
     </nav>

@@ -1,0 +1,319 @@
+.main {
+  min-height: 100vh;
+  padding-top: 52px;
+  background: #121212;
+  display: flex;
+  align-items: flex-start;
+  overflow-x: clip;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  padding-top: 0.5rem;
+  text-align: left;
+}
+
+.hiThere {
+  font-size: clamp(2.5rem, 3.9vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.nameStage {
+  position: relative;
+  padding-bottom: clamp(260px, 28vw, 360px);
+}
+
+.name {
+  font-size: clamp(6.5rem, 16vw, 13rem);
+  font-weight: 1000;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.photoStack {
+  position: absolute;
+  right: calc(-1 * clamp(150px, 14vw, 210px) / 3);
+  top: 52%;
+  transform: translateY(-50%);
+  display: grid;
+  grid-auto-flow: column;
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+  align-items: center;
+  pointer-events: none;
+}
+
+.photoCard {
+  width: clamp(150px, 14vw, 210px);
+  height: clamp(210px, 20vw, 300px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.photoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoCard01 {
+  transform: none;
+}
+
+.photoCard02 {
+  transform: none;
+}
+
+/* 2/3 visible, 1/3 off-screen (to the right) */
+.photoCard03 {
+  transform: none;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.aboutText {
+  text-align: left;
+}
+
+.aboutMainTitle {
+  font-size: 3.25rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.aboutBody {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.aboutStats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #6c9de5;
+  text-align: center;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.aboutCtaButton {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutCtaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.aboutCtaButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.aboutCtaButton:hover::before {
+  left: 100%;
+}
+
+.aboutImage {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 3;
+  margin-left: 1rem;
+}
+
+.aboutImageFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 0%, rgba(108, 157, 229, 0.5), transparent 65%),
+    rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(12, 20, 40, 0.8);
+}
+
+.aboutImageGlow {
+  position: absolute;
+  inset: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(108, 157, 229, 0.4);
+  box-shadow:
+    0 0 24px rgba(108, 157, 229, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.5);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.aboutImagePhoto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 75%;
+  border-radius: 12px;
+}
+
+.aboutTag {
+  position: absolute;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(12, 20, 40, 0.5);
+  pointer-events: none;
+}
+
+.aboutTagTopLeft {
+  top: -10px;
+  left: -4px;
+  transform: rotate(10deg);
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
+}
+
+.aboutTagTopRight {
+  top: 24px;
+  right: -40px;
+  transform: rotate(10deg);
+}
+
+.aboutTagBottomLeft {
+  top: 50%;
+  left: -60px;
+  transform: translateY(-50%) rotate(-24deg);
+}
+
+.aboutTagBottomRight {
+  top: 52%;
+  right: -70px;
+  transform: translateY(-50%) rotate(24deg);
+}
+
+.aboutTagCenter {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(4deg);
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .aboutImage {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .aboutStats {
+    gap: 2rem;
+  }
+
+  .name {
+    white-space: normal;
+  }
+
+  .photoStack {
+    right: 50%;
+    top: 62%;
+    transform: translate(50%, -50%);
+ }
+}
+
+@media (max-width: 600px) {
+  .aboutMainTitle {
+    font-size: 2.5rem;
+  }
+
+  .aboutStats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .photoCard {
+    width: clamp(130px, 30vw, 180px);
+    height: clamp(180px, 42vw, 260px);
+  }
+}
