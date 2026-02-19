@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ShaderBackground from "./components/ShaderBackground";
 import styles from "./App.module.css";
 import workUXUI01 from "./assets/Work_landingpage_UXUI01.png";
 import workUXUI02 from "./assets/Work_landingpage_UXUI02.png";
 import workDesign01 from "./assets/Work_landingpage_design01.png";
 import workDesign02 from "./assets/Work_landingpage_design02.png";
+import landing1 from "./assets/Landing page_1.png";
+import landing2 from "./assets/Landing page_2.png";
+import landing3 from "./assets/Landing page_3.png";
+import landing4 from "./assets/Landing page_4.png";
 import bonniePhoto from "./assets/Picture_Bonnie.png";
 
 function StatNumber({ value, suffix = "" }) {
@@ -68,6 +73,13 @@ function App() {
     return () => clearTimeout(t);
   }, [aboutInView]);
 
+  const handleScrollToAbout = () => {
+    const el = document.getElementById("about");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const handleScrollToWork = () => {
     const el = document.getElementById("work");
     if (el) {
@@ -79,25 +91,113 @@ function App() {
     <>
       <Navbar />
       <main className={styles.main}>
-        <section id="landing" className={styles.section} style={{ backgroundColor: '#FFFFFF' }}>
+        <section id="landing" className={styles.section}>
+          <div className={styles.shaderBackground}>
+            <ShaderBackground />
+          </div>
           <div className={styles.container}>
             <div className={styles.landingContent}>
               <motion.h1
                 className={styles.landingTitle}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.25, delay: 1.2 }}
               >
                 Designed for Resonance
               </motion.h1>
               <motion.h1
                 className={styles.landingTitle}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, delay: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.25, delay: 1.35 }}
               >
                 Built for Impact
               </motion.h1>
+              <motion.p
+                className={styles.landingSubtitle}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.1, delay: 1.5 }}
+              >
+                A hybrid designer that bridges marketing strategy with compelling digital design
+              </motion.p>
+
+              <motion.div
+                className={styles.landingImageStack}
+                initial={{ x: 0 }}
+                animate={{ x: 70 }}
+                transition={{ duration: 0.9, delay: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <motion.div
+                  className={styles.landingImg1}
+                  initial={{ opacity: 0, y: 80, x: "-50%", rotate: 0 }}
+                  animate={{
+                    opacity: [0, 1, 1, 1],
+                    y: [80, 0, 0, 0],
+                    x: ["-50%", "-50%", "-50%", "-200%"],
+                    rotate: [0, 0, 0, -11],
+                  }}
+                  transition={{
+                    duration: 2.75,
+                    delay: 1.4,
+                    times: [0, 0.22, 0.5, 1],
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                >
+                  <img src={landing1} alt="Work showcase 1" />
+                  <motion.div
+                    className={styles.hiThereTag}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 520, damping: 18, delay: 4.2 }}
+                  >
+                    Hi there
+                  </motion.div>
+                </motion.div>
+                <motion.div
+                  className={styles.landingImg2}
+                  initial={{ opacity: 0, x: "-50%", rotate: 0 }}
+                  animate={{ opacity: 1, x: "24%", rotate: 11 }}
+                  transition={{ duration: 0.75, delay: 2.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img src={landing2} alt="Work showcase 2" />
+                  <motion.div
+                    className={styles.diveInTag}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 520, damping: 18, delay: 4.7 }}
+                  >
+                    Let’s dive in
+                  </motion.div>
+                </motion.div>
+                <motion.div
+                  className={styles.landingImg3}
+                  initial={{ opacity: 0, x: "-50%", rotate: 0 }}
+                  animate={{ opacity: 1, x: "-50%", rotate: 2 }}
+                  transition={{ duration: 0.75, delay: 2.82, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img src={landing3} alt="Work showcase 3" />
+                </motion.div>
+                <motion.div
+                  className={styles.landingImg4}
+                  initial={{ opacity: 0, x: "-50%", rotate: 0 }}
+                  animate={{ opacity: 1, x: "-124%", rotate: -6 }}
+                  transition={{ duration: 0.75, delay: 3.04, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img src={landing4} alt="Work showcase 4" />
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                className={styles.landingScrollWrap}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.55, delay: 5.25 }}
+              >
+                <button className={styles.scrollCircleButton} onClick={handleScrollToAbout} aria-label="Scroll to About section">
+                  ⌄
+                </button>
+              </motion.div>
             </div>
           </div>
         </section>
