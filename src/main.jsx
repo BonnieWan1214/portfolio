@@ -9,6 +9,7 @@ import About from './pages/About.jsx'
 import Work from './pages/Work.jsx'
 import ProjectWork01 from './pages/ProjectWork01.jsx'
 import ProjectWork02 from './pages/ProjectWork02.jsx'
+import ProjectWork05 from './pages/ProjectWork05.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/work/sporkshare" element={<ProjectWork02 />} />
         <Route path="/work/cocktail-packaging" element={<ProjectCocktail />} />
         <Route path="/work/social-media-campaign" element={<ProjectSocialCampaign />} />
+        <Route path="/work/shopee-mothers-day" element={<ProjectWork05 />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

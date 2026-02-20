@@ -7,6 +7,7 @@ import work01Img from "../assets/Work01_hero img.jpg";
 import work02Img from "../assets/Work_landingpage_UXUI02.png";
 import work03Img from "../assets/Work03_1.png";
 import work04Img from "../assets/Work04_1.png";
+import work05Img from "../assets/Work05_heroimg.jpg";
 
 const titleWords = ["My", "Creative", "Path"];
 
@@ -38,6 +39,13 @@ const workItems = [
     title: "Busch Beer | Social Media Design",
     tags: ["Graphic Design"],
     to: "/work/social-media-campaign",
+  },
+  {
+    id: "shopee",
+    image: work05Img,
+    title: "Shopee | Mother's Day Campaign for Southeast Asia's E-commerce Leader",
+    tags: ["UI Design"],
+    to: "/work/shopee-mothers-day",
   },
 ];
 
