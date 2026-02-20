@@ -1,12 +1,44 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "motion/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./ProjectWork05.module.css";
 import heroImage from "../assets/Work05_heroimg.jpg";
+import work05_2 from "../assets/Work05_2.jpg";
 import work05_4 from "../assets/Work05_4.jpg";
+import banner1 from "../assets/Work05_banner1.jpg";
+import banner2 from "../assets/Work05_banner2.jpg";
+import banner3 from "../assets/Work05_banner3.jpg";
+import banner4 from "../assets/Work05_banner4.jpg";
+import banner5 from "../assets/Work05_banner5.jpg";
+import banner6 from "../assets/Work05_banner6.jpg";
 
 function ProjectWork05() {
   const navigate = useNavigate();
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const bannerImages = [banner1, banner2, banner3, banner4, banner5, banner6];
+
+  useEffect(() => {
+    if (isLightboxOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLightboxOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isLightboxOpen) {
+        setIsLightboxOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isLightboxOpen]);
 
   return (
     <>
@@ -29,6 +61,7 @@ function ProjectWork05() {
                 <span className={styles.toolsLabel}>Tools</span>
                 <div className={styles.toolPills}>
                   <span className={styles.toolPill}>Adobe Photoshop</span>
+                  <span className={styles.toolPill}>Adobe Illustrator</span>
                 </div>
               </div>
             </div>
@@ -92,6 +125,69 @@ function ProjectWork05() {
                 </ul>
               </div>
             </div>
+
+            <div className={styles.strategySection}>
+              <h2 className={styles.overviewHeading}>
+                <span className={styles.sectionNum}>03</span> Design Strategy
+              </h2>
+              <div className={styles.strategyContent}>
+                <div className={styles.strategyImageWrap}>
+                  <img src={work05_2} alt="Shopee design strategy" className={styles.strategyImage} />
+                </div>
+                <div className={styles.colorPalette}>
+                  <div className={styles.colorSwatch}>
+                    <div className={styles.colorBlock} style={{ backgroundColor: '#fde6e3' }}></div>
+                    <span className={`${styles.colorCode} ${styles.colorCodeDark}`}>#fde6e3</span>
+                  </div>
+                  <div className={styles.colorSwatch}>
+                    <div className={styles.colorBlock} style={{ backgroundColor: '#ffd8d5' }}></div>
+                    <span className={`${styles.colorCode} ${styles.colorCodeDark}`}>#ffd8d5</span>
+                  </div>
+                  <div className={styles.colorSwatch}>
+                    <div className={styles.colorBlock} style={{ backgroundColor: '#c4a29d' }}></div>
+                    <span className={`${styles.colorCode} ${styles.colorCodeLight}`}>#c4a29d</span>
+                  </div>
+                  <div className={styles.colorSwatch}>
+                    <div className={styles.colorBlock} style={{ backgroundColor: '#690001' }}></div>
+                    <span className={`${styles.colorCode} ${styles.colorCodeLight}`}>#690001</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.designDetails}>
+              <div className={styles.designDetailItem}>
+                <h3 className={styles.designDetailTitle}>Color Selection</h3>
+                <p className={styles.overviewBody}>
+                  I used pale pink to set a warm tone, paired with deep red for headlines and CTAs. This approach keeps the design <br />harmonious while allowing the buttons to pop naturally for better guidance.
+                </p>
+              </div>
+              <div className={styles.designDetailItem}>
+                <h3 className={styles.designDetailTitle}>Layered Product Staging</h3>
+                <p className={styles.overviewBody}>
+                  To showcase four key products, I created a layered stage layout. Arranging items at different heights and depths <br />ensures each product is clearly visible and avoids a cluttered look.
+                </p>
+              </div>
+              <div className={styles.designDetailItem}>
+                <h3 className={styles.designDetailTitle}>Atmosphere & Details</h3>
+                <p className={styles.overviewBody}>
+                  To add visual depth, I added soft petals with motion blur and deep red ribbons. The floating petals bring a sense of <br />movement without distracting from the products, while the ribbons tie the design together by echoing the color of <br />the text and CTA buttons.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.moreBannersSection}>
+              <p className={styles.moreBannersText}>
+                Beyond the Mother's Day campaign, I have designed a wide range of banners across diverse categories for Shopee
+              </p>
+              <button
+                type="button"
+                className={styles.moreBannersBtn}
+                onClick={() => setIsLightboxOpen(true)}
+              >
+                See More Banner Designs
+              </button>
+            </div>
           </div>
         </div>
       </main>
@@ -106,6 +202,43 @@ function ProjectWork05() {
         </button>
       </div>
       <Footer />
+
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            className={styles.lightboxOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsLightboxOpen(false)}
+          >
+            <motion.div
+              className={styles.lightboxContent}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className={styles.lightboxClose}
+                onClick={() => setIsLightboxOpen(false)}
+                aria-label="Close lightbox"
+              >
+                ×
+              </button>
+              <div className={styles.lightboxGrid}>
+                {bannerImages.map((img, index) => (
+                  <div key={index} className={styles.lightboxImageWrap}>
+                    <img src={img} alt={`Shopee banner design ${index + 1}`} className={styles.lightboxImage} />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

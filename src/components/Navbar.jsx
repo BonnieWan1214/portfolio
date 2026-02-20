@@ -1,16 +1,27 @@
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logoImage from "../assets/Logo_Bonnie.png";
 import logoImageBlack from "../assets/Logo_Bonnie_B.png";
 
 function Navbar() {
-  const [isLightMode, setIsLightMode] = useState(true);
-  const aboutSectionRef = useRef(null);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const [isLightMode, setIsLightMode] = useState(isHomePage);
 
   useEffect(() => {
+    // If not on homepage, always use dark mode
+    if (!isHomePage) {
+      setIsLightMode(false);
+      return;
+    }
+
+    // Only check for landing/about section on homepage
     const aboutSection = document.getElementById("about");
-    if (!aboutSection) return;
+    if (!aboutSection) {
+      setIsLightMode(true); // Default to light mode on landing section
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,7 +59,7 @@ function Navbar() {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isHomePage]);
 
   return (
     <nav className={`${styles.navbar} ${isLightMode ? styles.navbarLight : styles.navbarDark}`}>
