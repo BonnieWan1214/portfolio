@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BounceCards from "./components/BounceCards";
@@ -14,11 +14,10 @@ import landing6 from "./assets/Landing-page_6.png";
 import landing7 from "./assets/Landing-page_7.jpg";
 import landingTag01 from "./assets/Landing-page_tag01.png";
 import landingTag02 from "./assets/Landing-page_tag02.png";
-import workUXUI01 from "./assets/Work_landingpage_UXUI01.png";
-import workUXUI02 from "./assets/Work_landingpage_UXUI02.png";
-import workDesign01 from "./assets/Work_landingpage_design01.png";
-import workDesign02 from "./assets/Work_landingpage_design02.png";
-import bonniePhoto from "./assets/Picture_Bonnie.png";
+import work01Img from "./assets/Work01_hero img.jpg";
+import work02Img from "./assets/Work_landingpage_UXUI02.png";
+import work03Img from "./assets/Work03_1.png";
+import work05Img from "./assets/Work05_heroimg.jpg";
 
 function StatNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(0);
@@ -69,22 +68,6 @@ function StatNumber({ value, suffix = "" }) {
 }
 
 function App() {
-  const aboutImageRef = useRef(null);
-  const aboutInView = useInView(aboutImageRef, { once: true, amount: 0.4 });
-  const [showAboutScrollBtn, setShowAboutScrollBtn] = useState(false);
-  useEffect(() => {
-    if (!aboutInView) return;
-    const t = setTimeout(() => setShowAboutScrollBtn(true), 1200);
-    return () => clearTimeout(t);
-  }, [aboutInView]);
-
-  const handleScrollToWork = () => {
-    const el = document.getElementById("work");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <>
       <Navbar />
@@ -153,161 +136,139 @@ function App() {
           <div className={styles.container}>
             <div className={styles.aboutContent}>
               <div className={styles.aboutText}>
-                <h2 className={styles.aboutMainTitle} style={{ fontSize: '3.25rem', fontWeight: 900 }}>I'm Bonnie</h2>
-                <p className={styles.aboutBody}>
-                  With over five years of experience in digital design and B2B marketing across multiple industries, I focus on how design supports both user needs and business goals—creating impact beyond aesthetics.
-                </p>
-                <div className={styles.aboutStats}>
-                  <div className={styles.statItem}>
-                    <div className={styles.statNumber}>
-                      <StatNumber value={5} />
+                <motion.h2
+                  className={styles.aboutMainTitle}
+                  style={{ fontSize: '3.25rem', fontWeight: 900 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  A hybrid designer that bridges<br />marketing strategy with compelling digital design
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.85, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <p className={styles.aboutBody}>
+                    With over five years of experience in digital design and B2B marketing across multiple industries, I focus on how design supports both user needs and business goals—creating impact beyond aesthetics.
+                  </p>
+                  <div className={styles.aboutStats}>
+                    <div className={styles.statItem}>
+                      <div className={styles.statNumber}>
+                        <StatNumber value={5} />
+                      </div>
+                      <div className={styles.statLabel}>Years of Experience</div>
                     </div>
-                    <div className={styles.statLabel}>Years of Experience</div>
-                  </div>
-                  <div className={styles.statItem}>
-                    <div className={styles.statNumber}>
-                      <StatNumber value={20} />
+                    <div className={styles.statItem}>
+                      <div className={styles.statNumber}>
+                        <StatNumber value={20} />
+                      </div>
+                      <div className={styles.statLabel}>Completed Projects</div>
                     </div>
-                    <div className={styles.statLabel}>Completed Projects</div>
-                  </div>
-                  <div className={styles.statItem}>
-                    <div className={styles.statNumber}>
-                      <StatNumber value={5} suffix="+" />
+                    <div className={styles.statItem}>
+                      <div className={styles.statNumber}>
+                        <StatNumber value={5} suffix="+" />
+                      </div>
+                      <div className={styles.statLabel}>Industries Explored</div>
                     </div>
-                    <div className={styles.statLabel}>Industries Explored</div>
                   </div>
-                </div>
-                <Link to="/about" className={styles.aboutCtaButton}>
-                  SEE MY JOURNEY→
-                </Link>
-              </div>
-              <div className={styles.aboutImage} ref={aboutImageRef}>
-                <div className={styles.aboutImageFrame}>
-                  <div className={styles.aboutImageGlow}></div>
-                  <img
-                    src={bonniePhoto}
-                    alt="Portrait of Bonnie Wan"
-                    className={styles.aboutImagePhoto}
-                  />
-                </div>
-                <motion.div
-                  className={`${styles.aboutTag} ${styles.aboutTagTopLeft}`}
-                  initial={{ opacity: 0, scale: 0.7, y: -8, rotate: 10 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 10 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.1 }}
-                >
-                  TPE / YVR
-                </motion.div>
-                <motion.div
-                  className={`${styles.aboutTag} ${styles.aboutTagTopRight}`}
-                  initial={{ opacity: 0, scale: 0.7, y: -8 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.22 }}
-                >
-                  UI / UX Designer
-                </motion.div>
-                <motion.div
-                  className={`${styles.aboutTag} ${styles.aboutTagBottomLeft}`}
-                  initial={{ opacity: 0, scale: 0.7, y: 8, rotate: -15 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: -15 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.34 }}
-                >
-                  Product Designer
-                </motion.div>
-                <motion.div
-                  className={`${styles.aboutTag} ${styles.aboutTagBottomRight}`}
-                  initial={{ opacity: 0, scale: 0.7, y: 8, rotate: -5 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: -5 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.46 }}
-                >
-                  Outdoor Enthusiast
-                </motion.div>
-                <motion.div
-                  className={`${styles.aboutTag} ${styles.aboutTagCenter}`}
-                  initial={{ opacity: 0, scale: 0.7, y: 10 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ type: "spring", stiffness: 520, damping: 20, delay: 0.6 }}
-                >
-                  ENFJ
+                  <Link to="/about" className={styles.aboutCtaButton}>
+                    SEE MY JOURNEY→
+                  </Link>
                 </motion.div>
               </div>
-      </div>
-            <motion.div
-              className={styles.aboutScrollWrap}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showAboutScrollBtn ? 1 : 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <button className={styles.scrollCircleButton} onClick={handleScrollToWork} aria-label="Scroll to Work section">
-                ⌄
-        </button>
-            </motion.div>
+            </div>
           </div>
         </section>
-        <section id="work" className={styles.section}>
+        <section id="work" className={styles.section} style={{ backgroundColor: '#FFFFFF' }}>
           <div className={styles.container}>
-            <div className={styles.workHeader}>
-              <h2 className={styles.workTitle}>Selected Works</h2>
-              <p className={styles.workSubtitle}>
+            <motion.div
+              className={styles.workHeader}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <h2 className={styles.workTitle} style={{ color: '#121212' }}>Selected Works</h2>
+              <p className={styles.workSubtitle} style={{ color: '#121212' }}>
                 A curated collection of projects that balance aesthetic craft with strategic results.
-        </p>
-      </div>
-            <div className={styles.workRows}>
-              <div className={styles.workRow}>
-                <div className={styles.workText}>
-                  <h3 className={styles.workRowTitle}>UX / UI</h3>
-                  <p className={styles.workRowSubtitle}>
-                    Focusing on solving everyday challenges through user research and intuitive interface design.
-                  </p>
-                  <Link to="/work/ux-ui" className={styles.workLearnMoreBtn}>Learn more →</Link>
+              </p>
+            </motion.div>
+            <div className={styles.homeWorkGrid}>
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <Link to="/work/ux-ui" className={styles.homeWorkCard}>
+                <div className={styles.homeWorkCardImageWrap}>
+                  <img src={work01Img} alt="" className={styles.homeWorkCardImage} />
                 </div>
-                <div className={styles.workImages}>
-                  <div className={styles.workImageContainer}>
-                    <img src={workUXUI01} alt="UX/UI Work 1" className={styles.workImage} />
-                    <div className={styles.workImageOverlay}>
-                      <p className={styles.workImageText}>A scheduling solution for parents in the skilled trades</p>
-                      <Link to="/work/ux-ui" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
-                    </div>
-                  </div>
-                  <div className={styles.workImageContainer}>
-                    <img src={workUXUI02} alt="UX/UI Work 2" className={styles.workImage} />
-                    <div className={styles.workImageOverlay}>
-                      <p className={styles.workImageText}>A social app for inclusive foodies</p>
-                      <Link to="/work/sporkshare" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
-                    </div>
-                  </div>
+                <h3 className={styles.homeWorkCardTitle}>Tandem | A scheduling solution for parents in the skilled trades</h3>
+                <div className={styles.homeWorkCardTags}>
+                  <span className={styles.homeWorkCardTag}>UI / UX Design</span>
+                  <span className={styles.homeWorkCardTag}>Frontend Development</span>
+                  <span className={styles.homeWorkCardTag}>Logo Design</span>
                 </div>
-              </div>
-              <div className={styles.workRow}>
-                <div className={styles.workText}>
-                  <h3 className={styles.workRowTitle}>Graphic Design</h3>
-                  <p className={styles.workRowSubtitle}>
-                    A blend of professional marketing assets and creative visual storytelling for diverse brands.
-                  </p>
-                  <Link to="/work/cocktail-packaging" className={styles.workLearnMoreBtn}>Learn more →</Link>
+              </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <Link to="/work/sporkshare" className={styles.homeWorkCard}>
+                <div className={styles.homeWorkCardImageWrap}>
+                  <img src={work02Img} alt="" className={styles.homeWorkCardImage} />
                 </div>
-                <div className={styles.workImages}>
-                  <div className={styles.workImageContainer}>
-                    <img src={workDesign01} alt="Graphic Design Work 1" className={styles.workImage} />
-                    <div className={styles.workImageOverlay}>
-                      <p className={styles.workImageText}>Cocktail packaging design</p>
-                      <Link to="/work/cocktail-packaging" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
-                    </div>
-                  </div>
-                  <div className={styles.workImageContainer}>
-                    <img src={workDesign02} alt="Graphic Design Work 2" className={styles.workImage} />
-                    <div className={styles.workImageOverlay}>
-                      <p className={styles.workImageText}>Social media campaign</p>
-                      <Link to="/work/social-media-campaign" className={styles.workImageLearnMoreBtn}>Learn more →</Link>
-                    </div>
-                  </div>
+                <h3 className={styles.homeWorkCardTitle}>Sporkshare | A social app for inclusive foodies</h3>
+                <div className={styles.homeWorkCardTags}>
+                  <span className={styles.homeWorkCardTag}>UI / UX Design</span>
+                  <span className={styles.homeWorkCardTag}>Animation</span>
+                  <span className={styles.homeWorkCardTag}>Logo Design</span>
                 </div>
-              </div>
+              </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <Link to="/work/cocktail-packaging" className={styles.homeWorkCard}>
+                <div className={styles.homeWorkCardImageWrap}>
+                  <img src={work03Img} alt="" className={styles.homeWorkCardImage} />
+                </div>
+                <h3 className={styles.homeWorkCardTitle}>Meowtini | Cocktail packaging design</h3>
+                <div className={styles.homeWorkCardTags}>
+                  <span className={styles.homeWorkCardTag}>Packaging Design</span>
+                </div>
+              </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <Link to="/work/shopee-mothers-day" className={styles.homeWorkCard}>
+                <div className={styles.homeWorkCardImageWrap}>
+                  <img src={work05Img} alt="" className={styles.homeWorkCardImage} />
+                </div>
+                <h3 className={styles.homeWorkCardTitle}>Shopee | Mother's Day Campaign for Southeast Asia's E-commerce Leader</h3>
+                <div className={styles.homeWorkCardTags}>
+                  <span className={styles.homeWorkCardTag}>UI Design</span>
+                </div>
+              </Link>
+              </motion.div>
+            </div>
+            <div className={styles.homeWorkViewMoreWrap}>
+              <Link to="/work" className={styles.homeWorkViewMoreBtn}>View more</Link>
             </div>
           </div>
         </section>
