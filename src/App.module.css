@@ -306,6 +306,48 @@
   margin-top: 0;
 }
 
+.landingCardsWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+.landingCardsAndTags {
+  position: relative;
+  width: 820px;
+}
+
+.landingTag01Wrap {
+  position: absolute;
+  left: -160px;
+  top: 38%;
+  transform: translateY(-50%) rotate(-6deg);
+  pointer-events: none;
+}
+
+.landingTag01 {
+  display: block;
+  max-width: 168px;
+  max-height: 168px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.landingTag02 {
+  position: absolute;
+  right: -8px;
+  top: -14px;
+  transform: translateY(-100%);
+  max-width: 120px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 #landing .container {
   align-items: flex-start !important;
   justify-content: flex-start !important;
