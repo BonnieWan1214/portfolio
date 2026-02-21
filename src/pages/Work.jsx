@@ -61,26 +61,33 @@ function Work() {
                 <motion.span
                   key={word}
                   className={styles.titleWord}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.9,
+                    duration: 0.5,
                     ease: [0.25, 0.46, 0.45, 0.94],
-                    delay: 0.22 * i,
+                    delay: 0.12 * i,
                   }}
                 >
                   {word}
                 </motion.span>
               ))}
             </h1>
-            <p className={styles.workSubtitle}>
+            <motion.p
+              className={styles.workSubtitle}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
               Each work represents a chapter in my design journey, designed to solve problems and told through a compelling visual language. Take a look at the work I'm proud of:
-            </p>
+            </motion.p>
           </header>
-          <section className={styles.workGrid}>
+          <motion.section
+            className={styles.workGrid}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
             {workItems.map((item) => (
               <Link
                 key={item.id}
@@ -92,6 +99,8 @@ function Work() {
                     src={item.image}
                     alt=""
                     className={styles.workCardImage}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <h3 className={styles.workCardTitle}>{item.title}</h3>
@@ -104,7 +113,7 @@ function Work() {
                 </div>
               </Link>
             ))}
-          </section>
+          </motion.section>
         </div>
       </main>
       <Footer />

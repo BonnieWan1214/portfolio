@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BounceCards from "./components/BounceCards";
+import ScrollFloat from "./components/ScrollFloat";
 import styles from "./App.module.css";
 import landing1 from "./assets/Landing page_1.png";
 import landing2 from "./assets/Landing page_2.png";
@@ -68,6 +69,17 @@ function StatNumber({ value, suffix = "" }) {
 }
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location || location.pathname !== "/" || (location.hash || "") !== "#contact") return;
+    const t = setTimeout(() => {
+      const contact = document.getElementById("contact");
+      if (contact) contact.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+    return () => clearTimeout(t);
+  }, [location?.pathname, location?.hash]);
+
   return (
     <>
       <Navbar />
@@ -93,9 +105,10 @@ function App() {
               </motion.h1>
               <div className={styles.landingCardsWrap}>
                 <div className={styles.landingCardsAndTags}>
-                  <BounceCards
-                    images={[landing1, landing2, landing3, landing4, landing5, landing6, landing7]}
-                    containerWidth={820}
+                <BounceCards
+                  images={[landing1, landing2, landing3, landing4, landing5, landing6, landing7]}
+                  linkTo="/work"
+                  containerWidth={820}
                     containerHeight={400}
                     animationDelay={1.45}
                     animationStagger={0.06}
@@ -275,13 +288,22 @@ function App() {
         <section id="contact" className={styles.section}>
           <div className={styles.container}>
             <div className={styles.contactContent}>
-              <h2 className={styles.contactTitle}>HAVE AN IDEA?</h2>
-              <p className={styles.contactSubtitle}>
-                Let's bridge the gap between your business goals and user needs
-              </p>
-              <a href="mailto:bonniewan1998@gmail.com" className={styles.contactButton}>
-                Get in touch →
-              </a>
+              <ScrollFloat containerClassName={styles.contactScrollFloat}>
+                HAVE AN IDEA?
+              </ScrollFloat>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <p className={styles.contactSubtitle}>
+                  Let's bridge the gap between your business goals and user needs
+                </p>
+                <a href="mailto:bonniewan1998@gmail.com" className={styles.contactButton}>
+                  Get in touch →
+                </a>
+              </motion.div>
             </div>
           </div>
         </section>

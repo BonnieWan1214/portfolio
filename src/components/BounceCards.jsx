@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './BounceCards.css';
 
 export default function BounceCards({
   className = '',
   images = [],
+  linkTo = '',
   containerWidth = 400,
   containerHeight = 400,
   animationDelay = 0.5,
@@ -126,19 +128,23 @@ export default function BounceCards({
         height: containerHeight
       }}
     >
-      {images.map((src, idx) => (
-        <div
-          key={idx}
-          className={`card card-${idx}`}
-          style={{
-            transform: transformStyles[idx] ?? 'none'
-          }}
-          onMouseEnter={() => pushSiblings(idx)}
-          onMouseLeave={resetSiblings}
-        >
-          <img className="image" src={src} alt={`card-${idx}`} />
-        </div>
-      ))}
+      {images.map((src, idx) => {
+        const cardProps = {
+          key: idx,
+          className: `card card-${idx}`,
+          style: { transform: transformStyles[idx] ?? 'none' },
+          onMouseEnter: () => pushSiblings(idx),
+          onMouseLeave: resetSiblings
+        };
+        const content = <img className="image" src={src} alt={`card-${idx}`} />;
+        return linkTo ? (
+          <Link to={linkTo} {...cardProps}>
+            {content}
+          </Link>
+        ) : (
+          <div {...cardProps}>{content}</div>
+        );
+      })}
     </div>
   );
 }

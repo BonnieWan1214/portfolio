@@ -62,8 +62,8 @@ function Navbar() {
           <span className={`${styles.navSeparator} ${isLightMode ? styles.navSeparatorLight : styles.navSeparatorDark}`}>|</span>
           <Link to="/work" className={`${styles.navLink} ${isLightMode ? styles.navLinkLight : styles.navLinkDark}`}>Work</Link>
           <span className={`${styles.navSeparator} ${isLightMode ? styles.navSeparatorLight : styles.navSeparatorDark}`}>|</span>
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className={`${styles.navLink} ${isLightMode ? styles.navLinkLight : styles.navLinkDark}`}
             onClick={(e) => {
               if (location.pathname === "/") {
@@ -73,7 +73,7 @@ function Navbar() {
             }}
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
