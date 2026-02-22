@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logoImage from "../assets/Logo_Bonnie.png";
-import logoImageBlack from "../assets/logo_Bonnie_B.png";
+import logoImageBlack from "../assets/Logo_Bonnie_B.png";
 
 function Navbar() {
   const location = useLocation();
