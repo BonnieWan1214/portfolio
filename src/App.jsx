@@ -16,8 +16,8 @@ import landing7 from "./assets/Landing-page_7.jpg";
 import landingTag01 from "./assets/Landing-page_tag01.png";
 import landingTag02 from "./assets/Landing-page_tag02.png";
 import work01Img from "./assets/Work01_hero img.jpg";
-import work02Img from "./assets/Work_landingpage_UXUI02.png";
-import work03Img from "./assets/Work03_1.png";
+import work02CoverVideo from "./assets/Work02_coverimg.mp4";
+import work03CoverGif from "./assets/Work03_coverimg.gif";
 import work05Img from "./assets/Work05_heroimg.jpg";
 
 function StatNumber({ value, suffix = "" }) {
@@ -237,7 +237,14 @@ function App() {
               >
                 <Link to="/work/sporkshare" className={styles.homeWorkCard}>
                 <div className={styles.homeWorkCardImageWrap}>
-                  <img src={work02Img} alt="" className={styles.homeWorkCardImage} />
+                  <video
+                    src={work02CoverVideo}
+                    className={styles.homeWorkCardImage}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
                 </div>
                 <h3 className={styles.homeWorkCardTitle}>Sporkshare | A social app for inclusive foodies</h3>
                 <div className={styles.homeWorkCardTags}>
@@ -255,7 +262,7 @@ function App() {
               >
                 <Link to="/work/cocktail-packaging" className={styles.homeWorkCard}>
                 <div className={styles.homeWorkCardImageWrap}>
-                  <img src={work03Img} alt="" className={styles.homeWorkCardImage} />
+                  <img src={work03CoverGif} alt="" className={styles.homeWorkCardImage} />
                 </div>
                 <h3 className={styles.homeWorkCardTitle}>Meowtini | Cocktail packaging design</h3>
                 <div className={styles.homeWorkCardTags}>

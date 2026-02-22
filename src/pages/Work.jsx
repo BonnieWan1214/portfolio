@@ -4,8 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./Work.module.css";
 import work01Img from "../assets/Work01_hero img.jpg";
-import work02Img from "../assets/Work_landingpage_UXUI02.png";
-import work03Img from "../assets/Work03_1.png";
+import work02CoverVideo from "../assets/Work02_coverimg.mp4";
+import work03CoverGif from "../assets/Work03_coverimg.gif";
 import work04Img from "../assets/Work04_1.png";
 import work05Img from "../assets/Work05_heroimg.jpg";
 
@@ -21,17 +21,10 @@ const workItems = [
   },
   {
     id: "sporkshare",
-    image: work02Img,
+    video: work02CoverVideo,
     title: "Sporkshare | A social app for inclusive foodies",
     tags: ["UI / UX Design", "Animation", "Logo Design"],
     to: "/work/sporkshare",
-  },
-  {
-    id: "meowtini",
-    image: work03Img,
-    title: "Meowtini | Cocktail packaging design",
-    tags: ["Packaging Design"],
-    to: "/work/cocktail-packaging",
   },
   {
     id: "busch",
@@ -39,6 +32,13 @@ const workItems = [
     title: "Busch Beer | Social Media Design",
     tags: ["Graphic Design"],
     to: "/work/social-media-campaign",
+  },
+  {
+    id: "meowtini",
+    image: work03CoverGif,
+    title: "Meowtini | Cocktail packaging design",
+    tags: ["Packaging Design"],
+    to: "/work/cocktail-packaging",
   },
   {
     id: "shopee",
@@ -95,13 +95,24 @@ function Work() {
                 className={styles.workCard}
               >
                 <div className={styles.workCardImageWrap}>
-                  <img
-                    src={item.image}
-                    alt=""
-                    className={styles.workCardImage}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {item.video ? (
+                    <video
+                      src={item.video}
+                      className={styles.workCardImage}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={item.image}
+                      alt=""
+                      className={styles.workCardImage}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                 </div>
                 <h3 className={styles.workCardTitle}>{item.title}</h3>
                 <div className={styles.workCardTags}>
