@@ -5,6 +5,7 @@ import styles from "./About.module.css";
 import about01 from "../assets/Aboutme01.png";
 import about02 from "../assets/Aboutme02.png";
 import about03 from "../assets/Aboutme03.png";
+import resumePdf from "../assets/BonnieWan_Resume.pdf";
 
 function About() {
   return (
@@ -156,7 +157,7 @@ function About() {
             </motion.div>
           </motion.section>
           <div className={styles.resumeWrap}>
-            <a href="#" className={styles.resumeBtn} aria-label="Download Resume">
+            <a href={resumePdf} download="BonnieWan_Resume.pdf" className={styles.resumeBtn} aria-label="Download Resume">
               <span className={styles.resumeBtnShine} aria-hidden />
               Download Resume
             </a>
