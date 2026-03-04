@@ -294,6 +294,17 @@
   vertical-align: middle;
 }
 
+.promotionTextWrap {
+  max-width: 88%;
+  margin: 0 auto;
+  padding: 1.5rem 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 /* Key Features */
 .keyFeaturesHeading {
   font-size: 28px;
@@ -1252,6 +1263,14 @@
   margin-top: 2rem;
 }
 
+.userTestingSection {
+  margin-top: 4rem;
+}
+
+.userTestingNextHeading {
+  margin-top: 3rem;
+}
+
 /* Typography & Color panel */
 .typographyPanel {
   display: grid;
@@ -1465,6 +1484,63 @@
   margin-left: auto;
   margin-right: auto;
   object-fit: contain;
+}
+
+.userTestingContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.userTestingImageCol {
+  flex: 0 0 55%;
+  max-width: 520px;
+}
+
+.userTestingImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.userTestingIssues {
+  flex: 1;
+  min-width: 0;
+}
+
+.userTestingIssuesTitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.5rem 0;
+}
+
+.userTestingIssuesList {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.userTestingIssuesList li {
+  margin-bottom: 0.4rem;
+}
+
+.userTestingIssuesList li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .userTestingContent {
+    flex-direction: column;
+  }
+
+  .userTestingImageCol {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
 }
 
 /* 08 Design Evolution */

@@ -12,6 +12,7 @@ import logoDesignPng from "../assets/Work02_logo.png";
 import componentsSvg from "../assets/Work02_component.svg";
 import work02Ui from "../assets/Work02_UI.png";
 import work02Video from "../assets/Work02_Video.mp4";
+import userTestingImg from "../assets/Work02_User-testing.png";
 
 function ProjectWork02() {
   const navigate = useNavigate();
@@ -80,6 +81,19 @@ function ProjectWork02() {
                   <span className={styles.toolPill}>Adobe After Effects</span>
                   <span style={{ width: '100%', flexBasis: '100%' }}></span>
                   <span className={styles.toolPill}>Figma</span>
+                </div>
+              </div>
+              <div className={styles.finalProductRow}>
+                <span className={styles.finalProductLabel}>Final product</span>
+                <div className={styles.finalProductBtns}>
+                  <a
+                    href="https://www.figma.com/proto/VlOOWKp5J3vXBW1oGMoJ3B/Sporkshare?node-id=5416-10169&p=f&t=d7cKTajgvpGPHcA8-1&scaling=scale-down&content-scaling=fixed&page-id=5416%3A9386&starting-point-node-id=5416%3A10204&show-proto-sidebar=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.finalProductBtn}
+                  >
+                    View prototype
+                  </a>
                 </div>
               </div>
             </div>
@@ -407,18 +421,55 @@ function ProjectWork02() {
                   </div>
                 </div>
               </div>
-              <div className={styles.work02UiWrap}>
-                <img src={work02Ui} alt="Sporkshare UI" className={styles.work02UiImage} />
+              <div className={styles.userTestingSection}>
+                <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>07</span> User testing</h2>
+                <p className={styles.overviewBody}>
+                  We conducted two rounds of user testing during both the mid-fidelity and high-fidelity stages to validate our design decisions and iterate effectively. Across these sessions, we designed six task-based scenarios that reflected key user journeys, allowing participants to interact with core features in realistic contexts.
+                </p>
+                <div className={styles.work02UiWrap}>
+                  <div className={styles.userTestingContent}>
+                    <div className={styles.userTestingImageCol}>
+                      <img src={userTestingImg} alt="Sporkshare user testing" className={styles.userTestingImage} />
+                    </div>
+                    <div className={styles.userTestingIssues}>
+                      <p className={styles.userTestingIssuesTitle}>
+                        <strong>MAIN ISSUES IDENTIFIED:</strong>
+                      </p>
+                      <ul className={styles.userTestingIssuesList}>
+                        <li>Interface felt visually flat and lacked strong branding.</li>
+                        <li>Low contrast reduced readability and accessibility.</li>
+                        <li>Missing confirmation feedback caused user hesitation.</li>
+                        <li>Visual hierarchy was unclear, making key actions less obvious.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.researchReportBtnWrap}>
+                  <a
+                    href="https://www.figma.com/design/VlOOWKp5J3vXBW1oGMoJ3B/Sporkshare?node-id=9163-385&t=GiPJ866uaxiTJya0-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.researchReportBtn}
+                  >
+                    View User testing detail
+                  </a>
+                </div>
+                <h2 className={`${styles.overviewHeading} ${styles.userTestingNextHeading}`}><span className={styles.sectionNum}>08</span> Final UI Design</h2>
+                <div className={styles.work02UiWrap}>
+                  <img src={work02Ui} alt="Sporkshare UI" className={styles.work02UiImage} />
+                </div>
               </div>
             </div>
             <div className={styles.overviewSection} ref={refPromotionVideo}>
-              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>07</span> Promotion Video</h2>
+              <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>09</span> Promotion Video</h2>
               <div className={styles.promotionVideoWrap}>
                 <video src={work02Video} className={styles.promotionVideo} controls loop muted playsInline autoPlay />
               </div>
-              <p className={styles.overviewBody}>
-                To alleviate the stress users with dietary restrictions face when searching for restaurants, I chose an upbeat tempo and lively animations to present Sporkshare. The video focuses on our three core features, demonstrating how users can intuitively find their ideal dining destinations with both ease and precision while meeting their specific dietary needs
-              </p>
+              <div className={styles.promotionTextWrap}>
+                <p className={styles.overviewBody}>
+                  To alleviate the stress users with dietary restrictions face when searching for restaurants, I chose an upbeat tempo and lively animations to present Sporkshare. The video focuses on our three core features, demonstrating how users can intuitively find their ideal dining destinations with both ease and precision while meeting their specific dietary needs
+                </p>
+              </div>
             </div>
           </div>
         </div>

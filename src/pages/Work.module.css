@@ -67,6 +67,7 @@
   overflow: hidden;
   margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.06);
+  position: relative;
 }
 
 .workCardImage {
@@ -74,6 +75,28 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.workCardComingSoon {
+  cursor: default;
+}
+
+.workCardComingSoon:hover {
+  transform: none;
+}
+
+.workCardComingSoonLabel {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.78);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .workCardTitle {

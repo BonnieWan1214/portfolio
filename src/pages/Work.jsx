@@ -8,6 +8,7 @@ import work02CoverVideo from "../assets/Work02_coverimg.mp4";
 import work03CoverGif from "../assets/Work03_coverimg.gif";
 import work04Img from "../assets/Work04_1.png";
 import work05Img from "../assets/Work05_heroimg.jpg";
+import work06CoverGif from "../assets/Work06_cover img.gif";
 
 const titleWords = ["My", "Creative", "Path"];
 
@@ -46,6 +47,13 @@ const workItems = [
     title: "Shopee | Mother's Day Campaign for Southeast Asia's E-commerce Leader",
     tags: ["UI Design"],
     to: "/work/shopee-mothers-day",
+  },
+  {
+    id: "linko",
+    image: work06CoverGif,
+    title: "Linko | Where Music Brings People Together",
+    tags: ["UI / UX Design"],
+    comingSoon: true,
   },
 ];
 
@@ -88,42 +96,64 @@ function Work() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            {workItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.to}
-                className={styles.workCard}
-              >
-                <div className={styles.workCardImageWrap}>
-                  {item.video ? (
-                    <video
-                      src={item.video}
-                      className={styles.workCardImage}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                  ) : (
-                    <img
-                      src={item.image}
-                      alt=""
-                      className={styles.workCardImage}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  )}
+            {workItems.map((item) => {
+              const cardInner = (
+                <>
+                  <div className={styles.workCardImageWrap}>
+                    {item.video ? (
+                      <video
+                        src={item.video}
+                        className={styles.workCardImage}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={item.image}
+                        alt=""
+                        className={styles.workCardImage}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    {item.comingSoon && (
+                      <span className={styles.workCardComingSoonLabel}>Coming Soon</span>
+                    )}
+                  </div>
+                  <h3 className={styles.workCardTitle}>{item.title}</h3>
+                  <div className={styles.workCardTags}>
+                    {item.tags.map((tag) => (
+                      <span key={tag} className={styles.workCardTag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              );
+
+              if (item.to) {
+                return (
+                  <Link
+                    key={item.id}
+                    to={item.to}
+                    className={styles.workCard}
+                  >
+                    {cardInner}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={item.id}
+                  className={`${styles.workCard} ${styles.workCardComingSoon}`}
+                >
+                  {cardInner}
                 </div>
-                <h3 className={styles.workCardTitle}>{item.title}</h3>
-                <div className={styles.workCardTags}>
-                  {item.tags.map((tag) => (
-                    <span key={tag} className={styles.workCardTag}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
+              );
+            })}
           </motion.section>
         </div>
       </main>
