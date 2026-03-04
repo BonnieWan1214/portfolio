@@ -651,6 +651,41 @@
   padding-left: 0;
 }
 
+.researchReportBtnWrap {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.researchReportBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 157, 229, 0.55);
+  background: rgba(108, 157, 229, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.researchReportBtn:hover {
+  background: rgba(108, 157, 229, 0.4);
+  border-color: rgba(108, 157, 229, 0.8);
+  transform: translateY(-1px);
+}
+
+.researchReportBtn:active {
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .researchBlocks {
     grid-template-columns: 1fr;
@@ -1578,13 +1613,14 @@
 
 .reflectionRow {
   display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .reflectionImageWrap {
-  flex: 0 0 45%;
-  max-width: 520px;
+  width: 100%;
+  max-width: 100%;
   border-radius: 16px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
@@ -1598,9 +1634,8 @@
 }
 
 .reflectionText {
-  flex: 1;
-  min-width: 0;
-  max-width: 36em;
+  width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 2rem;
@@ -1619,11 +1654,14 @@
 
 @media (max-width: 768px) {
   .reflectionRow {
-    flex-direction: column;
+    gap: 1.5rem;
   }
-  .reflectionImageWrap {
-    flex: 0 0 auto;
+  .reflectionImageWrap,
+  .reflectionText {
     max-width: 100%;
+  }
+  .reflectionText {
+    padding: 1.5rem 1.25rem;
   }
 }
 

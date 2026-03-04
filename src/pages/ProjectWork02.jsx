@@ -222,6 +222,16 @@ function ProjectWork02() {
                   </ul>
                 </div>
               </div>
+              <div className={styles.researchReportBtnWrap}>
+                <a
+                  href="https://docs.google.com/document/d/1MJVXaiHopzCgb-bizc2L69RP0uPMDQDIHK2_T9UlFK4/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.researchReportBtn}
+                >
+                  View Research Report
+                </a>
+              </div>
             </div>
             <div className={styles.insightsSection}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>04</span> From Data to Insights</h2>
@@ -404,7 +414,7 @@ function ProjectWork02() {
             <div className={styles.overviewSection} ref={refPromotionVideo}>
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>07</span> Promotion Video</h2>
               <div className={styles.promotionVideoWrap}>
-                <video src={work02Video} className={styles.promotionVideo} controls loop muted playsInline />
+                <video src={work02Video} className={styles.promotionVideo} controls loop muted playsInline autoPlay />
               </div>
               <p className={styles.overviewBody}>
                 To alleviate the stress users with dietary restrictions face when searching for restaurants, I chose an upbeat tempo and lively animations to present Sporkshare. The video focuses on our three core features, demonstrating how users can intuitively find their ideal dining destinations with both ease and precision while meeting their specific dietary needs

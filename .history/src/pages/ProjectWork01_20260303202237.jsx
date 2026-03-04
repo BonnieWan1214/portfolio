@@ -495,7 +495,7 @@ It allows parents to find childcare easily, reducing stress and improving work-l
               <h2 className={styles.overviewHeading}><span className={styles.sectionNum}>08</span> Design Evolution</h2>
               <div className={styles.evolutionIntroBox}>
                 <p className={styles.evolutionIntro}>
-                As each feature was initially developed in silos, the design lacked cohesion and felt visually heavy. Through user testing, we identified usability friction and visual overload as key issues. I led a UI overhaul to unify the interface, transforming it into a more intuitive and lightweight experience for Tandem users.
+                As each feature was initially developed in silos, the design lacked cohesion and felt visually heavy. Through user testing, we identified usability friction and visual overload as key issues. I then led a UI overhaul to unify the interface, transforming it into a more intuitive and lightweight experience for Tandem users.
                 </p>
               </div>
               <div className={styles.evolutionList}>
