@@ -67,11 +67,11 @@ function ProjectSocialCampaign() {
           </aside>
 
           <div className={styles.content}>
-            <h1 className={styles.projectTitle}>Busch Beer | Socail media campaign</h1>
+            <h1 className={styles.projectTitle}>Busch Beer | Social Media Design</h1>
             <div className={styles.imageWrapper}>
               <img
                 src={heroImage}
-                alt="Busch Beer Social media campaign"
+                alt="Busch Beer Social Media Design"
                 className={styles.projectImage}
               />
             </div>

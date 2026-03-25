@@ -62,6 +62,51 @@
   color: #ffffff;
 }
 
+.contributionsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.contributionsLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contributionsLabel::before {
+  content: '• ';
+}
+
+.contributionsBody {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.sidebarHighlightLink {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-weight: 700;
+  color: #6c9de5;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebarHighlightLink:hover {
+  color: #8bb3f0;
+}
+
 .toolsRow {
   display: flex;
   flex-direction: column;
@@ -232,6 +277,32 @@
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
+}
+
+.promotionVideoWrap {
+  width: 100%;
+  max-width: 88%;
+  margin: 1.5rem auto 1.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.promotionVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.promotionTextWrap {
+  max-width: 88%;
+  margin: 0 auto;
+  padding: 1.5rem 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Key Features */
@@ -589,6 +660,41 @@
   color: rgba(255, 255, 255, 0.9);
   margin: 0 0 0 0;
   padding-left: 0;
+}
+
+.researchReportBtnWrap {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.researchReportBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 157, 229, 0.55);
+  background: rgba(108, 157, 229, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.researchReportBtn:hover {
+  background: rgba(108, 157, 229, 0.4);
+  border-color: rgba(108, 157, 229, 0.8);
+  transform: translateY(-1px);
+}
+
+.researchReportBtn:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -1157,6 +1263,14 @@
   margin-top: 2rem;
 }
 
+.userTestingSection {
+  margin-top: 4rem;
+}
+
+.userTestingNextHeading {
+  margin-top: 3rem;
+}
+
 /* Typography & Color panel */
 .typographyPanel {
   display: grid;
@@ -1316,7 +1430,7 @@
 
 .designPanelImageWrap {
   width: 100%;
-  max-width: 88%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 16px;
@@ -1334,6 +1448,15 @@
   margin-top: 1.5rem;
   font-size: 1rem;
   line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 100%;
+}
+
+.designPanelDescLogo {
+  margin-top: -4.5rem;
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.9);
   max-width: 100%;
 }
@@ -1361,6 +1484,63 @@
   margin-left: auto;
   margin-right: auto;
   object-fit: contain;
+}
+
+.userTestingContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.userTestingImageCol {
+  flex: 0 0 55%;
+  max-width: 520px;
+}
+
+.userTestingImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.userTestingIssues {
+  flex: 1;
+  min-width: 0;
+}
+
+.userTestingIssuesTitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.5rem 0;
+}
+
+.userTestingIssuesList {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.userTestingIssuesList li {
+  margin-bottom: 0.4rem;
+}
+
+.userTestingIssuesList li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .userTestingContent {
+    flex-direction: column;
+  }
+
+  .userTestingImageCol {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
 }
 
 /* 08 Design Evolution */
@@ -1509,13 +1689,14 @@
 
 .reflectionRow {
   display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .reflectionImageWrap {
-  flex: 0 0 45%;
-  max-width: 520px;
+  width: 100%;
+  max-width: 100%;
   border-radius: 16px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
@@ -1529,9 +1710,8 @@
 }
 
 .reflectionText {
-  flex: 1;
-  min-width: 0;
-  max-width: 36em;
+  width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 2rem;
@@ -1550,11 +1730,14 @@
 
 @media (max-width: 768px) {
   .reflectionRow {
-    flex-direction: column;
+    gap: 1.5rem;
   }
-  .reflectionImageWrap {
-    flex: 0 0 auto;
+  .reflectionImageWrap,
+  .reflectionText {
     max-width: 100%;
+  }
+  .reflectionText {
+    padding: 1.5rem 1.25rem;
   }
 }
 
