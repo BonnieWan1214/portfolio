@@ -108,20 +108,18 @@ function App() {
                 <BounceCards
                   images={[landing1, landing2, landing3, landing4, landing5, landing6, landing7]}
                   linkTo="/work"
-                  containerWidth={820}
-                    containerHeight={400}
-                    animationDelay={1.45}
-                    animationStagger={0.06}
-                    transformStyles={[
-                      'rotate(4deg) translate(-345px)',
-                      'rotate(1deg) translate(-230px)',
-                      'rotate(-2deg) translate(-115px)',
-                      'rotate(0deg)',
-                      'rotate(-1.5deg) translate(115px)',
-                      'rotate(2deg) translate(230px)',
-                      'rotate(-1.5deg) translate(345px) translateY(-22px)'
-                    ]}
-                  />
+                  animationDelay={1.45}
+                  animationStagger={0.06}
+                  transformStyles={[
+                    'rotate(4deg) translate(-345px)',
+                    'rotate(1deg) translate(-230px)',
+                    'rotate(-2deg) translate(-115px)',
+                    'rotate(0deg)',
+                    'rotate(-1.5deg) translate(115px)',
+                    'rotate(2deg) translate(230px)',
+                    'rotate(-1.5deg) translate(345px) translateY(-22px)'
+                  ]}
+                />
                   <div className={styles.landingTag01Wrap}>
                     <motion.img
                       src={landingTag01}

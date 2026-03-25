@@ -3,13 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 400px;
+  width: 820px; /* 固定桌機設計寬度，交給外層做 scale */
+  height: 400px; /* 對應你原本的高度 */
 }
 
 .card {
   position: absolute;
-  width: 200px;
+  width: 200px; /* 回到原本 card 尺寸，等比例縮放交給外層 */
   aspect-ratio: 1;
   border: 5px solid #fff;
   border-radius: 25px;
@@ -29,3 +29,4 @@
   min-height: 100%;
   transform: scale(1.08);
 }
+

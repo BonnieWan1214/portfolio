@@ -7,8 +7,6 @@ export default function BounceCards({
   className = '',
   images = [],
   linkTo = '',
-  containerWidth = 400,
-  containerHeight = 400,
   animationDelay = 0.5,
   animationStagger = 0.06,
   easeType = 'elastic.out(1, 0.8)',
@@ -24,6 +22,7 @@ export default function BounceCards({
   enableHover = true
 }) {
   const containerRef = useRef(null);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -40,7 +39,7 @@ export default function BounceCards({
     return () => ctx.revert();
   }, [animationStagger, easeType, animationDelay]);
 
-  const getNoRotationTransform = transformStr => {
+  const getNoRotationTransform = (transformStr) => {
     const hasRotate = /rotate\([\s\S]*?\)/.test(transformStr);
     if (hasRotate) {
       return transformStr.replace(/rotate\([\s\S]*?\)/, 'rotate(0deg)');
@@ -63,7 +62,7 @@ export default function BounceCards({
     }
   };
 
-  const pushSiblings = hoveredIdx => {
+  const pushSiblings = (hoveredIdx) => {
     if (!enableHover || !containerRef.current) return;
 
     const q = gsap.utils.selector(containerRef);
@@ -122,11 +121,6 @@ export default function BounceCards({
     <div
       className={`bounceCardsContainer ${className}`}
       ref={containerRef}
-      style={{
-        position: 'relative',
-        width: containerWidth,
-        height: containerHeight
-      }}
     >
       {images.map((src, idx) => {
         const cardProps = {
@@ -148,3 +142,4 @@ export default function BounceCards({
     </div>
   );
 }
+

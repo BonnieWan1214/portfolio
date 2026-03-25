@@ -434,6 +434,22 @@
 .landingCardsAndTags {
   position: relative;
   width: 820px;
+  margin: 0 auto;
+  transform-origin: top center;
+}
+
+@media (max-width: 640px) {
+  .landingCardsAndTags {
+    transform: scale(0.5);
+  }
+
+  #landing .landingTitle {
+    /* Smaller screens: make headline feel larger */
+    font-size: 88px !important;
+    line-height: 0.95;
+    margin-bottom: 0.35rem;
+    outline: 2px solid rgba(255, 0, 0, 0.35);
+  }
 }
 
 .landingTag01Wrap {
