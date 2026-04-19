@@ -1,0 +1,36 @@
+.bounceCardsContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 820px; /* 固定桌機設計寬度，交給外層做 scale */
+  height: 400px; /* 對應你原本的高度 */
+  contain: layout paint;
+}
+
+.card {
+  position: absolute;
+  width: 200px; /* 回到原本 card 尺寸，等比例縮放交給外層 */
+  aspect-ratio: 1;
+  border: 5px solid #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.card .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  transform: scale(1.08);
+  will-change: transform;
+}
+

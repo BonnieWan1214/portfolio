@@ -22,26 +22,25 @@ export default function BounceCards({
   enableHover = true
 }) {
   const containerRef = useRef(null);
-  const isSafari = useMemo(() => {
-    if (typeof navigator === 'undefined') return false;
-    const ua = navigator.userAgent;
-    return /Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Edg\//i.test(ua);
-  }, []);
-  const hoverDuration = isSafari ? 0.28 : 0.4;
-  const hoverEase = isSafari ? 'power3.out' : 'back.out(1.4)';
+  const cardElsRef = useRef([]);
+
+  const baseTransforms = useMemo(() => {
+    return images.map((_, i) => transformStyles[i] ?? 'none');
+  }, [images, transformStyles]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.bounce-cards__card',
-        { scale: 0 },
-        {
-          scale: 1,
-          stagger: animationStagger,
-          ease: easeType,
-          delay: animationDelay
-        }
-      );
+      const targets = cardElsRef.current.filter(Boolean);
+      if (!targets.length) return;
+
+      gsap.fromTo(targets, { scale: 0, force3D: true }, {
+        scale: 1,
+        stagger: animationStagger,
+        ease: easeType,
+        delay: animationDelay,
+        overwrite: 'auto',
+        force3D: true
+      });
     }, containerRef);
     return () => ctx.revert();
   }, [animationStagger, easeType, animationDelay]);
@@ -72,20 +71,19 @@ export default function BounceCards({
   const pushSiblings = (hoveredIdx) => {
     if (!enableHover || !containerRef.current) return;
 
-    const q = gsap.utils.selector(containerRef);
-
     images.forEach((_, i) => {
-      const target = q(`.bounce-cards__card--${i}`);
-      gsap.killTweensOf(target);
+      const el = cardElsRef.current[i];
+      if (!el) return;
+      gsap.killTweensOf(el);
 
-      const baseTransform = transformStyles[i] || 'none';
+      const baseTransform = baseTransforms[i] || 'none';
 
       if (i === hoveredIdx) {
         const noRotationTransform = getNoRotationTransform(baseTransform);
-        gsap.to(target, {
+        gsap.to(el, {
           transform: noRotationTransform,
-          duration: hoverDuration,
-          ease: hoverEase,
+          duration: 0.4,
+          ease: 'back.out(1.4)',
           overwrite: 'auto',
           force3D: true
         });
@@ -94,12 +92,12 @@ export default function BounceCards({
         const pushedTransform = getPushedTransform(baseTransform, offsetX);
 
         const distance = Math.abs(hoveredIdx - i);
-        const delay = isSafari ? 0 : distance * 0.05;
+        const delay = distance * 0.05;
 
-        gsap.to(target, {
+        gsap.to(el, {
           transform: pushedTransform,
-          duration: hoverDuration,
-          ease: hoverEase,
+          duration: 0.4,
+          ease: 'back.out(1.4)',
           delay,
           overwrite: 'auto',
           force3D: true
@@ -111,16 +109,15 @@ export default function BounceCards({
   const resetSiblings = () => {
     if (!enableHover || !containerRef.current) return;
 
-    const q = gsap.utils.selector(containerRef);
-
     images.forEach((_, i) => {
-      const target = q(`.bounce-cards__card--${i}`);
-      gsap.killTweensOf(target);
-      const baseTransform = transformStyles[i] || 'none';
-      gsap.to(target, {
+      const el = cardElsRef.current[i];
+      if (!el) return;
+      gsap.killTweensOf(el);
+      const baseTransform = baseTransforms[i] || 'none';
+      gsap.to(el, {
         transform: baseTransform,
-        duration: hoverDuration,
-        ease: hoverEase,
+        duration: 0.4,
+        ease: 'back.out(1.4)',
         overwrite: 'auto',
         force3D: true
       });
@@ -129,20 +126,23 @@ export default function BounceCards({
 
   return (
     <div
-      className={`bounce-cards ${className}`}
+      className={`bounceCardsContainer ${className}`}
       ref={containerRef}
     >
       {images.map((src, idx) => {
         const cardProps = {
           key: idx,
-          className: `bounce-cards__card bounce-cards__card--${idx}`,
-          style: { transform: transformStyles[idx] ?? 'none' },
+          className: `card card-${idx}`,
+          style: { transform: baseTransforms[idx] ?? 'none' },
           onMouseEnter: () => pushSiblings(idx),
           onMouseLeave: resetSiblings
         };
+        const setRef = (el) => {
+          cardElsRef.current[idx] = el;
+        };
         const content = (
           <img
-            className="bounce-cards__card-image"
+            className="image"
             src={src}
             alt={`card-${idx}`}
             loading="eager"
@@ -152,11 +152,11 @@ export default function BounceCards({
           />
         );
         return linkTo ? (
-          <Link to={linkTo} {...cardProps}>
+          <Link to={linkTo} {...cardProps} ref={setRef}>
             {content}
           </Link>
         ) : (
-          <div {...cardProps}>{content}</div>
+          <div {...cardProps} ref={setRef}>{content}</div>
         );
       })}
     </div>

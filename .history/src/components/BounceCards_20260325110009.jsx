@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './BounceCards.css';
@@ -22,18 +22,11 @@ export default function BounceCards({
   enableHover = true
 }) {
   const containerRef = useRef(null);
-  const isSafari = useMemo(() => {
-    if (typeof navigator === 'undefined') return false;
-    const ua = navigator.userAgent;
-    return /Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Edg\//i.test(ua);
-  }, []);
-  const hoverDuration = isSafari ? 0.28 : 0.4;
-  const hoverEase = isSafari ? 'power3.out' : 'back.out(1.4)';
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '.bounce-cards__card',
+        '.card',
         { scale: 0 },
         {
           scale: 1,
@@ -75,7 +68,7 @@ export default function BounceCards({
     const q = gsap.utils.selector(containerRef);
 
     images.forEach((_, i) => {
-      const target = q(`.bounce-cards__card--${i}`);
+      const target = q(`.card-${i}`);
       gsap.killTweensOf(target);
 
       const baseTransform = transformStyles[i] || 'none';
@@ -84,25 +77,23 @@ export default function BounceCards({
         const noRotationTransform = getNoRotationTransform(baseTransform);
         gsap.to(target, {
           transform: noRotationTransform,
-          duration: hoverDuration,
-          ease: hoverEase,
-          overwrite: 'auto',
-          force3D: true
+          duration: 0.4,
+          ease: 'back.out(1.4)',
+          overwrite: 'auto'
         });
       } else {
         const offsetX = i < hoveredIdx ? -100 : 100;
         const pushedTransform = getPushedTransform(baseTransform, offsetX);
 
         const distance = Math.abs(hoveredIdx - i);
-        const delay = isSafari ? 0 : distance * 0.05;
+        const delay = distance * 0.05;
 
         gsap.to(target, {
           transform: pushedTransform,
-          duration: hoverDuration,
-          ease: hoverEase,
+          duration: 0.4,
+          ease: 'back.out(1.4)',
           delay,
-          overwrite: 'auto',
-          force3D: true
+          overwrite: 'auto'
         });
       }
     });
@@ -114,43 +105,32 @@ export default function BounceCards({
     const q = gsap.utils.selector(containerRef);
 
     images.forEach((_, i) => {
-      const target = q(`.bounce-cards__card--${i}`);
+      const target = q(`.card-${i}`);
       gsap.killTweensOf(target);
       const baseTransform = transformStyles[i] || 'none';
       gsap.to(target, {
         transform: baseTransform,
-        duration: hoverDuration,
-        ease: hoverEase,
-        overwrite: 'auto',
-        force3D: true
+        duration: 0.4,
+        ease: 'back.out(1.4)',
+        overwrite: 'auto'
       });
     });
   };
 
   return (
     <div
-      className={`bounce-cards ${className}`}
+      className={`bounceCardsContainer ${className}`}
       ref={containerRef}
     >
       {images.map((src, idx) => {
         const cardProps = {
           key: idx,
-          className: `bounce-cards__card bounce-cards__card--${idx}`,
+          className: `card card-${idx}`,
           style: { transform: transformStyles[idx] ?? 'none' },
           onMouseEnter: () => pushSiblings(idx),
           onMouseLeave: resetSiblings
         };
-        const content = (
-          <img
-            className="bounce-cards__card-image"
-            src={src}
-            alt={`card-${idx}`}
-            loading="eager"
-            decoding="async"
-            fetchPriority={idx < 2 ? 'high' : 'auto'}
-            draggable={false}
-          />
-        );
+        const content = <img className="image" src={src} alt={`card-${idx}`} />;
         return linkTo ? (
           <Link to={linkTo} {...cardProps}>
             {content}
