@@ -22,29 +22,77 @@ export default function BounceCards({
   enableHover = true
 }) {
   const containerRef = useRef(null);
+  const cardElsRef = useRef([]);
+  const imgElsRef = useRef([]);
+
   const isSafari = useMemo(() => {
     if (typeof navigator === 'undefined') return false;
     const ua = navigator.userAgent;
     return /Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Edg\//i.test(ua);
   }, []);
+
   const hoverDuration = isSafari ? 0.28 : 0.4;
   const hoverEase = isSafari ? 'power3.out' : 'back.out(1.4)';
 
   useEffect(() => {
+    let cancelled = false;
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.bounce-cards__card',
-        { scale: 0 },
-        {
+      const cards = cardElsRef.current.filter(Boolean);
+      const imgs = imgElsRef.current.filter(Boolean);
+      if (!cards.length) return;
+
+      // Set initial state immediately to avoid layout thrash during decode.
+      gsap.set(cards, { scale: 0, transformOrigin: '50% 50%', force3D: true });
+
+      const decodeAll = async () => {
+        await Promise.allSettled(
+          imgs.map((img) => {
+            if (!img || img.complete) return Promise.resolve();
+            if (typeof img.decode === 'function') return img.decode();
+            return new Promise((resolve) => {
+              img.addEventListener('load', resolve, { once: true });
+              img.addEventListener('error', resolve, { once: true });
+            });
+          })
+        );
+      };
+
+      const animateIn = () => {
+        const entranceEase = isSafari ? 'back.out(1.2)' : easeType;
+        gsap.to(cards, {
           scale: 1,
           stagger: animationStagger,
-          ease: easeType,
-          delay: animationDelay
+          ease: entranceEase,
+          delay: animationDelay,
+          overwrite: 'auto',
+          force3D: true
+        });
+      };
+
+      const run = async () => {
+        // Safari tends to hitch during decode; wait for decode before animating.
+        if (isSafari) {
+          await decodeAll();
+          if (cancelled) return;
+          animateIn();
+          return;
         }
-      );
+
+        // Chrome: animate immediately (decode can happen in parallel).
+        animateIn();
+        decodeAll();
+      };
+
+      requestAnimationFrame(() => {
+        if (!cancelled) run();
+      });
     }, containerRef);
-    return () => ctx.revert();
-  }, [animationStagger, easeType, animationDelay]);
+
+    return () => {
+      cancelled = true;
+      ctx.revert();
+    };
+  }, [animationStagger, easeType, animationDelay, isSafari]);
 
   const getNoRotationTransform = (transformStr) => {
     const hasRotate = /rotate\([\s\S]*?\)/.test(transformStr);
@@ -53,7 +101,7 @@ export default function BounceCards({
     } else if (transformStr === 'none') {
       return 'rotate(0deg)';
     } else {
-      return `${transformStr} rotate(0deg)`;
+      return `${transformStr} rotate(0deg) `;
     }
   };
 
@@ -70,19 +118,18 @@ export default function BounceCards({
   };
 
   const pushSiblings = (hoveredIdx) => {
-    if (!enableHover || !containerRef.current) return;
-
-    const q = gsap.utils.selector(containerRef);
+    if (!enableHover) return;
 
     images.forEach((_, i) => {
-      const target = q(`.bounce-cards__card--${i}`);
-      gsap.killTweensOf(target);
+      const el = cardElsRef.current[i];
+      if (!el) return;
+      gsap.killTweensOf(el);
 
       const baseTransform = transformStyles[i] || 'none';
 
       if (i === hoveredIdx) {
         const noRotationTransform = getNoRotationTransform(baseTransform);
-        gsap.to(target, {
+        gsap.to(el, {
           transform: noRotationTransform,
           duration: hoverDuration,
           ease: hoverEase,
@@ -92,11 +139,10 @@ export default function BounceCards({
       } else {
         const offsetX = i < hoveredIdx ? -100 : 100;
         const pushedTransform = getPushedTransform(baseTransform, offsetX);
-
         const distance = Math.abs(hoveredIdx - i);
         const delay = isSafari ? 0 : distance * 0.05;
 
-        gsap.to(target, {
+        gsap.to(el, {
           transform: pushedTransform,
           duration: hoverDuration,
           ease: hoverEase,
@@ -109,15 +155,14 @@ export default function BounceCards({
   };
 
   const resetSiblings = () => {
-    if (!enableHover || !containerRef.current) return;
-
-    const q = gsap.utils.selector(containerRef);
+    if (!enableHover) return;
 
     images.forEach((_, i) => {
-      const target = q(`.bounce-cards__card--${i}`);
-      gsap.killTweensOf(target);
+      const el = cardElsRef.current[i];
+      if (!el) return;
+      gsap.killTweensOf(el);
       const baseTransform = transformStyles[i] || 'none';
-      gsap.to(target, {
+      gsap.to(el, {
         transform: baseTransform,
         duration: hoverDuration,
         ease: hoverEase,
@@ -129,7 +174,7 @@ export default function BounceCards({
 
   return (
     <div
-      className={`bounce-cards ${className}`}
+      className={`bounce-cards ${isSafari ? 'bounce-cards--safari' : ''} ${className}`}
       ref={containerRef}
     >
       {images.map((src, idx) => {
@@ -140,26 +185,36 @@ export default function BounceCards({
           onMouseEnter: () => pushSiblings(idx),
           onMouseLeave: resetSiblings
         };
+
         const content = (
           <img
             className="bounce-cards__card-image"
             src={src}
             alt={`card-${idx}`}
-            loading="eager"
+            loading={idx < 2 ? 'eager' : 'lazy'}
             decoding="async"
             fetchPriority={idx < 2 ? 'high' : 'auto'}
             draggable={false}
+            ref={(el) => {
+              imgElsRef.current[idx] = el;
+            }}
           />
         );
+
+        const setCardRef = (el) => {
+          cardElsRef.current[idx] = el;
+        };
+
         return linkTo ? (
-          <Link to={linkTo} {...cardProps}>
+          <Link to={linkTo} {...cardProps} ref={setCardRef}>
             {content}
           </Link>
         ) : (
-          <div {...cardProps}>{content}</div>
+          <div {...cardProps} ref={setCardRef}>
+            {content}
+          </div>
         );
       })}
     </div>
   );
 }
-
