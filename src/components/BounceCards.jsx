@@ -24,11 +24,13 @@ export default function BounceCards({
   const containerRef = useRef(null);
   const cardElsRef = useRef([]);
   const imgElsRef = useRef([]);
+
   const isSafari = useMemo(() => {
     if (typeof navigator === 'undefined') return false;
     const ua = navigator.userAgent;
     return /Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Edg\//i.test(ua);
   }, []);
+
   const hoverDuration = isSafari ? 0.28 : 0.4;
   const hoverEase = isSafari ? 'power3.out' : 'back.out(1.4)';
 
@@ -78,15 +80,14 @@ export default function BounceCards({
 
         // Chrome: animate immediately (decode can happen in parallel).
         animateIn();
-        // Best-effort decode in background to reduce later hitches.
         decodeAll();
       };
 
-      // Don't block first paint; start work next frame.
       requestAnimationFrame(() => {
         if (!cancelled) run();
       });
     }, containerRef);
+
     return () => {
       cancelled = true;
       ctx.revert();
@@ -100,7 +101,7 @@ export default function BounceCards({
     } else if (transformStr === 'none') {
       return 'rotate(0deg)';
     } else {
-      return `${transformStr} rotate(0deg)`;
+      return `${transformStr} rotate(0deg) `;
     }
   };
 
@@ -138,7 +139,6 @@ export default function BounceCards({
       } else {
         const offsetX = i < hoveredIdx ? -100 : 100;
         const pushedTransform = getPushedTransform(baseTransform, offsetX);
-
         const distance = Math.abs(hoveredIdx - i);
         const delay = isSafari ? 0 : distance * 0.05;
 
@@ -185,6 +185,7 @@ export default function BounceCards({
           onMouseEnter: () => pushSiblings(idx),
           onMouseLeave: resetSiblings
         };
+
         const content = (
           <img
             className="bounce-cards__card-image"
@@ -199,9 +200,11 @@ export default function BounceCards({
             }}
           />
         );
+
         const setCardRef = (el) => {
           cardElsRef.current[idx] = el;
         };
+
         return linkTo ? (
           <Link to={linkTo} {...cardProps} ref={setCardRef}>
             {content}
@@ -215,4 +218,3 @@ export default function BounceCards({
     </div>
   );
 }
-
