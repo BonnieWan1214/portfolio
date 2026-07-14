@@ -429,41 +429,120 @@
   display: flex;
   justify-content: center;
   margin-top: 0.25rem;
+  overflow: visible;
+  padding-left: 2rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+.landingCardsShell {
+  position: relative;
+  margin: 0 auto;
+  flex-shrink: 0;
 }
 
 .landingCardsAndTags {
-  position: relative;
-  width: 820px;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--landing-design-w, 820px);
+  height: var(--landing-design-h, 400px);
+  transform: translateX(-50%) scale(var(--landing-cards-scale, 1));
   transform-origin: top center;
 }
 
-@media (max-width: 640px) {
-  .landingCardsAndTags {
-    transform: scale(0.5);
+@media (max-width: 900px) {
+  #landing.section {
+    min-height: auto;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 1.25rem !important;
+    overflow-x: visible;
+  }
+
+  #landing .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .landingCardsWrap {
+    margin-top: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1rem;
   }
 
   #landing .landingTitle {
-    /* Smaller screens: make headline feel larger */
-    font-size: 88px !important;
-    line-height: 0.95;
+    font-size: clamp(2.75rem, 9vw, 4.75rem);
+    line-height: 0.98;
+  }
+
+  .landingTag01 {
+    max-width: 110px;
+    max-height: 110px;
+  }
+
+  .landingTag02 {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  #landing.section {
+    min-height: auto;
+    padding-bottom: 1rem !important;
+  }
+
+  .landingCardsWrap {
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 0.75rem;
+  }
+
+  #landing .landingTitle {
+    font-size: clamp(2.6rem, 11vw, 4.25rem);
+    line-height: 1;
     margin-bottom: 0.35rem;
-    outline: 2px solid rgba(255, 0, 0, 0.35);
+  }
+
+  .landingTag01 {
+    max-width: 88px;
+    max-height: 88px;
+  }
+
+  .landingTag02 {
+    max-width: 64px;
+    max-height: 64px;
+  }
+}
+
+/* Tall phones: push cards lower to fill vertical blank */
+@media (max-width: 640px) and (min-height: 720px) {
+  .landingCardsWrap {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 430px) and (min-height: 800px) {
+  .landingCardsWrap {
+    margin-top: 3.25rem;
   }
 }
 
 .landingTag01Wrap {
   position: absolute;
-  left: -160px;
-  top: 38%;
-  transform: translateY(-50%) rotate(-6deg);
+  left: calc(50% + var(--landing-first-card-x, -345px));
+  /* Sit on the top edge of card 1 — close to the card, clear of the title */
+  top: 22px;
+  transform: translate(-50%, -40%) rotate(-6deg);
   pointer-events: none;
+  z-index: 3;
 }
 
 .landingTag01 {
   display: block;
-  max-width: 168px;
-  max-height: 168px;
+  max-width: 140px;
+  max-height: 140px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -471,11 +550,11 @@
 
 .landingTag02 {
   position: absolute;
-  right: -8px;
-  top: -14px;
+  right: -4px;
+  top: -10px;
   transform: translateY(-100%);
-  max-width: 120px;
-  max-height: 120px;
+  max-width: 100px;
+  max-height: 100px;
   width: auto;
   height: auto;
   object-fit: contain;

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './BounceCards.css';
@@ -33,6 +33,24 @@ export default function BounceCards({
 
   const hoverDuration = isSafari ? 0.28 : 0.4;
   const hoverEase = isSafari ? 'power3.out' : 'back.out(1.4)';
+
+  const [hoverEnabled, setHoverEnabled] = useState(() => {
+    if (typeof window === 'undefined') return enableHover;
+    if (!enableHover) return false;
+    return window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 901px)').matches;
+  });
+
+  useEffect(() => {
+    if (!enableHover || typeof window === 'undefined') {
+      setHoverEnabled(false);
+      return;
+    }
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 901px)');
+    const update = () => setHoverEnabled(mq.matches);
+    update();
+    mq.addEventListener?.('change', update);
+    return () => mq.removeEventListener?.('change', update);
+  }, [enableHover]);
 
   useEffect(() => {
     let cancelled = false;
@@ -70,9 +88,12 @@ export default function BounceCards({
       };
 
       const run = async () => {
-        // Safari tends to hitch during decode; wait for decode before animating.
+        // Safari: brief decode wait, but never stall entrance.
         if (isSafari) {
-          await decodeAll();
+          await Promise.race([
+            decodeAll(),
+            new Promise((resolve) => setTimeout(resolve, 280))
+          ]);
           if (cancelled) return;
           animateIn();
           return;
@@ -118,7 +139,7 @@ export default function BounceCards({
   };
 
   const pushSiblings = (hoveredIdx) => {
-    if (!enableHover) return;
+    if (!hoverEnabled) return;
 
     images.forEach((_, i) => {
       const el = cardElsRef.current[i];
@@ -155,7 +176,7 @@ export default function BounceCards({
   };
 
   const resetSiblings = () => {
-    if (!enableHover) return;
+    if (!hoverEnabled) return;
 
     images.forEach((_, i) => {
       const el = cardElsRef.current[i];

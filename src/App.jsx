@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BounceCards from "./components/BounceCards";
 import ScrollFloat from "./components/ScrollFloat";
+import useLandingCardsLayout from "./hooks/useLandingCardsLayout";
 import styles from "./App.module.css";
 import landing1 from "./assets/Landing page_1.png";
 import landing2 from "./assets/Landing page_2.png";
@@ -19,6 +20,8 @@ import work01Img from "./assets/Work01_hero img.jpg";
 import work02CoverVideo from "./assets/Work02_coverimg.mp4";
 import work03CoverGif from "./assets/Work03_coverimg.gif";
 import work05Img from "./assets/Work05_heroimg.jpg";
+
+const LANDING_IMAGES = [landing1, landing2, landing3, landing4, landing5, landing6, landing7];
 
 function StatNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(0);
@@ -70,6 +73,9 @@ function StatNumber({ value, suffix = "" }) {
 
 function App() {
   const location = useLocation();
+  const landingCardsWrapRef = useRef(null);
+  const landingImages = useMemo(() => LANDING_IMAGES, []);
+  const landingCards = useLandingCardsLayout(landingCardsWrapRef, landingImages);
 
   useEffect(() => {
     if (!location || location.pathname !== "/" || (location.hash || "") !== "#contact") return;
@@ -103,41 +109,46 @@ function App() {
               >
                 Built for Impact
               </motion.h1>
-              <div className={styles.landingCardsWrap}>
-                <div className={styles.landingCardsAndTags}>
-                <BounceCards
-                  images={[landing1, landing2, landing3, landing4, landing5, landing6, landing7]}
-                  linkTo="/work"
-                  animationDelay={1.45}
-                  animationStagger={0.06}
-                  transformStyles={[
-                    'rotate(4deg) translate(-345px)',
-                    'rotate(1deg) translate(-230px)',
-                    'rotate(-2deg) translate(-115px)',
-                    'rotate(0deg)',
-                    'rotate(-1.5deg) translate(115px)',
-                    'rotate(2deg) translate(230px)',
-                    'rotate(-1.5deg) translate(345px) translateY(-22px)'
-                  ]}
-                />
-                  <div className={styles.landingTag01Wrap}>
+              <div className={styles.landingCardsWrap} ref={landingCardsWrapRef}>
+                <div
+                  className={styles.landingCardsShell}
+                  style={{
+                    width: `${landingCards.shellWidth}px`,
+                    height: `${landingCards.shellHeight}px`,
+                    '--landing-cards-scale': String(landingCards.scale),
+                    '--landing-design-w': `${landingCards.designWidth}px`,
+                    '--landing-design-h': `${landingCards.designHeight}px`,
+                    '--landing-first-card-x': `${landingCards.firstCardX}px`
+                  }}
+                >
+                  <div className={styles.landingCardsAndTags}>
+                    <BounceCards
+                      key={landingCards.count}
+                      images={landingCards.images}
+                      linkTo="/work"
+                      animationDelay={0.85}
+                      animationStagger={0.06}
+                      transformStyles={landingCards.transformStyles}
+                    />
+                    <div className={styles.landingTag01Wrap}>
+                      <motion.img
+                        src={landingTag01}
+                        alt=""
+                        className={styles.landingTag01}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 1.15, type: "spring", stiffness: 260, damping: 18 }}
+                      />
+                    </div>
                     <motion.img
-                      src={landingTag01}
+                      src={landingTag02}
                       alt=""
-                      className={styles.landingTag01}
+                      className={styles.landingTag02}
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 1.95, type: "spring", stiffness: 260, damping: 18 }}
+                      transition={{ delay: 1.28, type: "spring", stiffness: 260, damping: 18 }}
                     />
                   </div>
-                  <motion.img
-                    src={landingTag02}
-                    alt=""
-                    className={styles.landingTag02}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 2.12, type: "spring", stiffness: 260, damping: 18 }}
-                  />
                 </div>
               </div>
             </div>
