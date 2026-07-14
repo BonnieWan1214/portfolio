@@ -475,6 +475,10 @@
     top: 62%;
     transform: translate(50%, -50%);
  }
+
+  .container {
+    padding: 3rem 1.25rem 5rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -490,5 +494,52 @@
   .photoCard {
     width: clamp(130px, 30vw, 180px);
     height: clamp(180px, 42vw, 260px);
+  }
+
+  .container {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .name {
+    white-space: normal;
+    font-size: clamp(3.25rem, 16vw, 5.5rem);
+  }
+
+  .nameStage {
+    padding-bottom: clamp(180px, 48vw, 260px);
+  }
+
+  .aboutIntro {
+    margin-top: -2rem;
+  }
+
+  .workExpList {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 1.5rem;
+  }
+
+  .workExpBlock {
+    flex: none;
+    width: 100%;
+  }
+
+  .resumeWrap {
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hiThere {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .photoStack {
+    gap: 0.5rem;
+  }
+
+  .photoCard {
+    width: clamp(100px, 28vw, 140px);
+    height: clamp(140px, 38vw, 200px);
   }
 }

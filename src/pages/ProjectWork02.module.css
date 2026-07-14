@@ -1773,3 +1773,108 @@
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
+
+@media (max-width: 900px) {
+  .main {
+    --work01-gutter: 1rem;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    top: auto;
+    width: 100%;
+    height: auto;
+    left: 0;
+    margin: 0 0 1.5rem;
+    padding: 0 0 1.25rem;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebarInner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .projectTitle {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .metaRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sectionNum {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .overviewHeading,
+  .keyFeaturesHeading {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .keyFeatureBtns {
+    flex-wrap: wrap;
+  }
+
+  .flowImageWrap {
+    max-width: 100%;
+  }
+
+  .typographyPanel,
+  .typographyPanelWork02Inner {
+    grid-template-columns: 1fr;
+  }
+
+  .typographyPanel {
+    padding: 1.25rem;
+  }
+
+  .contentFooterBar {
+    height: 12rem;
+  }
+
+  .insightsTableHeader,
+  .insightsTableRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 1.25rem 0.75rem 2.5rem;
+  }
+
+  .keyFeatureBtn {
+    font-size: 0.72rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .designBtn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .designPanel {
+    padding: 1.25rem;
+  }
+
+  .contentFooterBar {
+    height: 10rem;
+  }
+}

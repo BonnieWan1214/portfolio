@@ -41,67 +41,67 @@ function ProjectWork02() {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.layout}>
-          <aside className={styles.sidebar}>
-            <div className={styles.sidebarInner}>
-              <div className={styles.metaRow}>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>My Role</span>
-                  <span className={styles.metaValue}>UI/UX Designer</span>
-                  <span className={styles.metaValue}>Logo Designer</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Duration</span>
-                  <span className={styles.metaValue}>2025 Jan-Apr</span>
-                </div>
-              </div>
-              <div className={styles.contributionsRow}>
-                <span className={styles.contributionsLabel}>Team & Personal Contributions</span>
-                <p className={styles.contributionsBody}>
-                  As part of a 5-person team, I was involved in the end-to-end process, specifically leading the{" "}
-                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToTapToSave}>
-                    UI Design
-                  </button>{" "}
-                  for the Tap to save feature,{" "}
-                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToLogo}>
-                    Logo Design
-                  </button>
-                  , and{" "}
-                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToPromotionVideo}>
-                    Promotion Video
-                  </button>
-                  .
-                </p>
-              </div>
-              <div className={styles.toolsRow}>
-                <span className={styles.toolsLabel}>Tools</span>
-                <div className={styles.toolPills}>
-                  <span className={styles.toolPill}>Adobe Illustrator</span>
-                  <span className={styles.toolPill}>Adobe Photoshop</span>
-                  <span style={{ width: '100%', flexBasis: '100%' }}></span>
-                  <span className={styles.toolPill}>Adobe After Effects</span>
-                  <span style={{ width: '100%', flexBasis: '100%' }}></span>
-                  <span className={styles.toolPill}>Figma</span>
-                </div>
-              </div>
-              <div className={styles.finalProductRow}>
-                <span className={styles.finalProductLabel}>Final product</span>
-                <div className={styles.finalProductBtns}>
-                  <a
-                    href="https://www.figma.com/proto/VlOOWKp5J3vXBW1oGMoJ3B/Sporkshare?node-id=5416-10169&p=f&t=d7cKTajgvpGPHcA8-1&scaling=scale-down&content-scaling=fixed&page-id=5416%3A9386&starting-point-node-id=5416%3A10204&show-proto-sidebar=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.finalProductBtn}
-                  >
-                    View prototype
-                  </a>
-                </div>
-              </div>
-            </div>
-          </aside>
           <div className={styles.content}>
             <h1 className={styles.projectTitle}>
               Sporkshare | A social app for inclusive foodies
             </h1>
+            <aside className={styles.sidebar}>
+              <div className={styles.sidebarInner}>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>My Role</span>
+                    <span className={styles.metaValue}>UI/UX Designer</span>
+                    <span className={styles.metaValue}>Logo Designer</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>Duration</span>
+                    <span className={styles.metaValue}>2025 Jan-Apr</span>
+                  </div>
+                </div>
+                <div className={styles.contributionsRow}>
+                  <span className={styles.contributionsLabel}>Team & Personal Contributions</span>
+                  <p className={styles.contributionsBody}>
+                    As part of a 5-person team, I was involved in the end-to-end process, specifically leading the{" "}
+                    <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToTapToSave}>
+                      UI Design
+                    </button>{" "}
+                    for the Tap to save feature,{" "}
+                    <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToLogo}>
+                      Logo Design
+                    </button>
+                    , and{" "}
+                    <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToPromotionVideo}>
+                      Promotion Video
+                    </button>
+                    .
+                  </p>
+                </div>
+                <div className={styles.toolsRow}>
+                  <span className={styles.toolsLabel}>Tools</span>
+                  <div className={styles.toolPills}>
+                    <span className={styles.toolPill}>Adobe Illustrator</span>
+                    <span className={styles.toolPill}>Adobe Photoshop</span>
+                    <span style={{ width: '100%', flexBasis: '100%' }}></span>
+                    <span className={styles.toolPill}>Adobe After Effects</span>
+                    <span style={{ width: '100%', flexBasis: '100%' }}></span>
+                    <span className={styles.toolPill}>Figma</span>
+                  </div>
+                </div>
+                <div className={styles.finalProductRow}>
+                  <span className={styles.finalProductLabel}>Final product</span>
+                  <div className={styles.finalProductBtns}>
+                    <a
+                      href="https://www.figma.com/proto/VlOOWKp5J3vXBW1oGMoJ3B/Sporkshare?node-id=5416-10169&p=f&t=d7cKTajgvpGPHcA8-1&scaling=scale-down&content-scaling=fixed&page-id=5416%3A9386&starting-point-node-id=5416%3A10204&show-proto-sidebar=1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.finalProductBtn}
+                    >
+                      View prototype
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </aside>
             <div className={styles.imageWrapper}>
               <img src={heroImg} alt="Sporkshare app hero" className={styles.projectImage} />
             </div>

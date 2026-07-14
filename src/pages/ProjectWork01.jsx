@@ -53,72 +53,72 @@ function ProjectWork01() {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.layout}>
-          <aside className={styles.sidebar}>
-            <div className={styles.sidebarInner}>
-              <div className={styles.metaRow}>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>My Role</span>
-                  <span className={styles.metaValue}>UI / UX Designer</span>
-                  <span className={styles.metaValue}>Logo Designer</span>
-                  <span className={styles.metaValue}>Frontend Developer</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Duration</span>
-                  <span className={styles.metaValue}>Sep – Dec 2025</span>
-                </div>
-              </div>
-              <div className={styles.contributionsRow}>
-                <span className={styles.contributionsLabel}>Team & Personal Contributions</span>
-                <p className={styles.contributionsBody}>
-                  Within this 8-person team, I contributed to the full project lifecycle and led the{" "}
-                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToLogo}>
-                    Logo Design
-                  </button>{" "}
-                  and{" "}
-                  <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToDesignEvolution}>
-                    Design Evolution
-                  </button>
-                  .
-                </p>
-              </div>
-              <div className={styles.toolsRow}>
-                <span className={styles.toolsLabel}>Tools</span>
-                <div className={styles.toolPills}>
-                  <span className={styles.toolPill}>Adobe Illustrator</span>
-                  <span className={styles.toolPill}>Figma</span>
-                  <span className={styles.toolPill}>React</span>
-                  <span className={styles.toolPill}>TypeScript</span>
-                  <span className={styles.toolPill}>HTML5</span>
-                  <span className={styles.toolPill}>CSS3</span>
-                </div>
-              </div>
-              <div className={styles.finalProductRow}>
-                <span className={styles.finalProductLabel}>Final product</span>
-                <div className={styles.finalProductBtns}>
-                  <a
-                    href="https://www.tandem-app.com/sign-in?redirect_url=https%3A%2F%2Fwww.tandem-app.com%2F"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.finalProductBtn}
-                  >
-                    View coded app
-                  </a>
-                  <a
-                    href="https://www.figma.com/proto/98OrmiJpKUOwDCuckMRcah/Tandem-High-fi?node-id=7635-15682&m=dev&scaling=scale-down&content-scaling=fixed&page-id=7635%3A13393&starting-point-node-id=7635%3A15728&show-proto-sidebar=1&t=uXX2psnbheW3ZSGK-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.finalProductBtn}
-                  >
-                    View prototype
-                  </a>
-                </div>
-              </div>
-            </div>
-          </aside>
           <div className={styles.content}>
             <h1 className={styles.projectTitle}>
               Tandem | A scheduling solution for parents in the skilled trades
             </h1>
+            <aside className={styles.sidebar}>
+              <div className={styles.sidebarInner}>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>My Role</span>
+                    <span className={styles.metaValue}>UI / UX Designer</span>
+                    <span className={styles.metaValue}>Logo Designer</span>
+                    <span className={styles.metaValue}>Frontend Developer</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>Duration</span>
+                    <span className={styles.metaValue}>Sep – Dec 2025</span>
+                  </div>
+                </div>
+                <div className={styles.contributionsRow}>
+                  <span className={styles.contributionsLabel}>Team & Personal Contributions</span>
+                  <p className={styles.contributionsBody}>
+                    Within this 8-person team, I contributed to the full project lifecycle and led the{" "}
+                    <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToLogo}>
+                      Logo Design
+                    </button>{" "}
+                    and{" "}
+                    <button type="button" className={styles.sidebarHighlightLink} onClick={scrollToDesignEvolution}>
+                      Design Evolution
+                    </button>
+                    .
+                  </p>
+                </div>
+                <div className={styles.toolsRow}>
+                  <span className={styles.toolsLabel}>Tools</span>
+                  <div className={styles.toolPills}>
+                    <span className={styles.toolPill}>Adobe Illustrator</span>
+                    <span className={styles.toolPill}>Figma</span>
+                    <span className={styles.toolPill}>React</span>
+                    <span className={styles.toolPill}>TypeScript</span>
+                    <span className={styles.toolPill}>HTML5</span>
+                    <span className={styles.toolPill}>CSS3</span>
+                  </div>
+                </div>
+                <div className={styles.finalProductRow}>
+                  <span className={styles.finalProductLabel}>Final product</span>
+                  <div className={styles.finalProductBtns}>
+                    <a
+                      href="https://www.tandem-app.com/sign-in?redirect_url=https%3A%2F%2Fwww.tandem-app.com%2F"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.finalProductBtn}
+                    >
+                      View coded app
+                    </a>
+                    <a
+                      href="https://www.figma.com/proto/98OrmiJpKUOwDCuckMRcah/Tandem-High-fi?node-id=7635-15682&m=dev&scaling=scale-down&content-scaling=fixed&page-id=7635%3A13393&starting-point-node-id=7635%3A15728&show-proto-sidebar=1&t=uXX2psnbheW3ZSGK-1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.finalProductBtn}
+                    >
+                      View prototype
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </aside>
             <div className={styles.imageWrapper}>
               <img src={heroImg} alt="Tandem app hero" className={styles.projectImage} />
             </div>

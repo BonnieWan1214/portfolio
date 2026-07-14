@@ -45,32 +45,31 @@ function ProjectWork05() {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.layout}>
-          <aside className={styles.sidebar}>
-            <div className={styles.sidebarInner}>
-              <div className={styles.metaRow}>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>My Role</span>
-                  <span className={styles.metaValue}>UI Designer</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Duration</span>
-                  <span className={styles.metaValue}>1 week</span>
-                </div>
-              </div>
-              <div className={styles.toolsRow}>
-                <span className={styles.toolsLabel}>Tools</span>
-                <div className={styles.toolPills}>
-                  <span className={styles.toolPill}>Adobe Photoshop</span>
-                  <span className={styles.toolPill}>Adobe Illustrator</span>
-                </div>
-              </div>
-            </div>
-          </aside>
-
           <div className={styles.content}>
             <h1 className={styles.projectTitle}>
               Shopee | Mother's Day Campaign for Southeast Asia's E-commerce Leader
             </h1>
+            <aside className={styles.sidebar}>
+              <div className={styles.sidebarInner}>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>My Role</span>
+                    <span className={styles.metaValue}>UI Designer</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>Duration</span>
+                    <span className={styles.metaValue}>1 week</span>
+                  </div>
+                </div>
+                <div className={styles.toolsRow}>
+                  <span className={styles.toolsLabel}>Tools</span>
+                  <div className={styles.toolPills}>
+                    <span className={styles.toolPill}>Adobe Photoshop</span>
+                    <span className={styles.toolPill}>Adobe Illustrator</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
             <div className={styles.imageWrapper}>
               <img
                 src={heroImage}

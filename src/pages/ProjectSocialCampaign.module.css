@@ -287,3 +287,108 @@
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
+
+@media (max-width: 900px) {
+  .main {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    top: auto;
+    width: 100%;
+    height: auto;
+    left: 0;
+    margin: 0 0 1.5rem;
+    padding: 0 0 1.25rem;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebarInner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0;
+    padding: 1.5rem 0 3rem;
+  }
+
+  .projectTitle {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .metaRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sectionNum {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .overviewHeading {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .sectionRow {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .sectionRowImage {
+    flex: none;
+    width: 100%;
+  }
+
+  .sectionRowImage img {
+    padding: 0;
+  }
+
+  .igGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 2.5rem;
+  }
+
+  .carouselArrow {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .contentFooterBar {
+    height: 12rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .content {
+    padding: 1.25rem 0 2.5rem;
+  }
+
+  .igGrid {
+    padding: 0 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .contentFooterBar {
+    height: 10rem;
+  }
+}

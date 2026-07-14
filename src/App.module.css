@@ -1081,3 +1081,114 @@
 .contactButton:hover::before {
   left: 100%;
 }
+
+@media (max-width: 900px) {
+  #about.section {
+    padding: 2rem 0 1rem;
+    padding-top: calc(52px + 2rem);
+  }
+
+  #about .aboutMainTitle {
+    font-size: 2.5rem !important;
+  }
+
+  .aboutStats {
+    gap: 1.75rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .aboutImage {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .aboutTagTopRight,
+  .aboutTagBottomLeft,
+  .aboutTagBottomRight {
+    display: none;
+  }
+
+  #work.section {
+    padding-top: calc(52px + 1.5rem);
+    min-height: auto;
+    padding-bottom: 2.5rem;
+  }
+
+  #work .workTitle {
+    font-size: clamp(2rem, 7vw, 3rem) !important;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .section {
+    min-height: auto;
+  }
+
+  .homeWorkGrid {
+    gap: 2rem 1.25rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactTitle {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+  }
+
+  .contactScrollFloat .scroll-float-text {
+    white-space: normal;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .contactSubtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  #contact.section {
+    padding: 2rem 0;
+    padding-top: calc(52px + 2rem);
+  }
+
+  .workRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .workRow:not(:last-child) {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .workImages {
+    grid-template-columns: 1fr;
+  }
+
+  .workRowTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #about .aboutMainTitle {
+    font-size: 2rem !important;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .aboutCtaButton {
+    margin-top: 2rem;
+  }
+
+  .homeWorkCardTitle {
+    font-size: 1.05rem;
+  }
+}

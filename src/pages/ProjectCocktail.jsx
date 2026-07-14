@@ -16,31 +16,31 @@ function ProjectCocktail() {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.layout}>
-          <aside className={styles.sidebar}>
-            <div className={styles.sidebarInner}>
-              <div className={styles.metaRow}>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Role</span>
-                  <span className={styles.metaValue}>Graphic Designer</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>Duration</span>
-                  <span className={styles.metaValue}>1 week</span>
-                </div>
-              </div>
-              <div className={styles.toolsRow}>
-                <span className={styles.toolsLabel}>Tools</span>
-                <div className={styles.toolPills}>
-                  <span className={styles.toolPill}>Adobe Illustrator</span>
-                  <span className={styles.toolPill}>Adobe Photoshop</span>
-                </div>
-              </div>
-            </div>
-          </aside>
           <div className={styles.content}>
             <h1 className={styles.projectTitle}>
               Meowtini | Cocktail packaging design
             </h1>
+            <aside className={styles.sidebar}>
+              <div className={styles.sidebarInner}>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>Role</span>
+                    <span className={styles.metaValue}>Graphic Designer</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>Duration</span>
+                    <span className={styles.metaValue}>1 week</span>
+                  </div>
+                </div>
+                <div className={styles.toolsRow}>
+                  <span className={styles.toolsLabel}>Tools</span>
+                  <div className={styles.toolPills}>
+                    <span className={styles.toolPill}>Adobe Illustrator</span>
+                    <span className={styles.toolPill}>Adobe Photoshop</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
             <div className={styles.imageWrapper}>
               <img
                 src={workImage}
