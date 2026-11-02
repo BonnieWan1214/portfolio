@@ -8,7 +8,6 @@ import work02CoverVideo from "../assets/Work02_coverimg.mp4";
 import work03CoverGif from "../assets/Work03_coverimg.gif";
 import work04Img from "../assets/Work04_1.png";
 import work05Img from "../assets/Work05_heroimg.jpg";
-import work06CoverGif from "../assets/Work06_cover img.gif";
 
 const titleWords = ["My", "Creative", "Path"];
 
@@ -47,13 +46,6 @@ const workItems = [
     title: "Shopee | Mother's Day Campaign for Southeast Asia's E-commerce Leader",
     tags: ["UI Design"],
     to: "/work/shopee-mothers-day",
-  },
-  {
-    id: "linko",
-    image: work06CoverGif,
-    title: "Linko | Where Music Brings People Together",
-    tags: ["UI / UX Design"],
-    comingSoon: true,
   },
 ];
 
